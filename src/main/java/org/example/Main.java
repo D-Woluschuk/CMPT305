@@ -18,6 +18,9 @@ public class Main {
             size = Statistics.getNumberOfEntries(fileContents);
             System.out.println("Number of entries: " + size);
         }
+        else {
+            System.out.println("Could not find the file!");
+        }
 
     }
 }
