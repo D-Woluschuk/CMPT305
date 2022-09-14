@@ -19,7 +19,7 @@ public class Main {
             System.out.println("Number of entries: " + size);
         }
         else {
-            System.out.println("Could not find the file!");
+            System.out.println("Could not find the file!\n Please try again!");
         }
 
     }
