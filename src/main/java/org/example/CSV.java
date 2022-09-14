@@ -15,7 +15,8 @@ public class CSV {
     }
 
     public static String getFilePath(){
-        String filePath = "C:\\Users\\wolus\\Desktop\\Property_Assessment_Data_2022.csv";
+        //String filePath = "C:\\Users\\wolus\\Desktop\\Property_Assessment_Data_2022.csv";
+        String filePath = "/Users/dylanwoluschuk/Desktop/Property_Assessment_Data_2022.csv";
 
         //Scanner input = new Scanner(System.in);
         //System.out.println("Enter filename, including path: ");
