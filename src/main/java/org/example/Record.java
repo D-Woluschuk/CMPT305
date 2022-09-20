@@ -1,41 +1,42 @@
 package org.example;
 
-public class Record {
+import java.math.BigDecimal;
 
-    public int accountID,
+public class Record implements Comparable<Record> {
+
+    private int accountID,
             neighbourhoodID;
 
 
-    public String address,
-            postalCode,
-            neighbourhood,
-            ward,
+    private House aHouse;
+    private Ward aWard;
+
+    private Geography geography;
+
+    private String address,
             assessedClass1,
             assessedClass2,
             assessedClass3;
-    public double assessmentValue,
-            latitude,
-            longitude,
+
+    private BigDecimal assessmentValue,
             assessmentClass1,
             assessmentClass2,
             assessmentClass3;
 
 
-    public boolean garage;
 
-    public Record(int accID, String address
+
+    public Record(int accID, House aHouse, Ward aWard, BigDecimal assessmentValue, Geography geography
                   ){
 
 
         this.accountID = accID;
-        this.address = address;
-        /*this.garage = garageStatus;
-        this.neighbourhoodID = neighID;
-        this.neighbourhood = neighbourhoodName;
-        this.ward = wardName;
-        this.assessmentValue = assessedValue;
-        this.latitude = geoLat;
-        this.longitude = geoLong;
+        this.aHouse = aHouse;
+        this.aWard = aWard;
+        this.assessmentValue = assessmentValue;
+        this.geography = geography;
+
+        /*
         this.assessmentClass1 = assessmentClass1;
         this.assessmentClass2 = assessmentClass2;
         this.assessmentClass3 = assessmentClass3;
@@ -50,6 +51,10 @@ public class Record {
         int accNum;
         accNum = Integer.parseInt(accountNumber);
         return accNum;
+    }
+
+    public BigDecimal getAssessedValue(){
+        return this.assessmentValue;
     }
 
     public static String getFullAddress(String suite, String houseNum, String streetName){
@@ -71,10 +76,11 @@ public class Record {
         return neighbourhoodID;
     }
 
-    public static double assessedValue(String Value){
-        double assessedValue;
+    public static BigDecimal assessedValue(String value){
+        BigDecimal assessedValue;
+        double aValue = Double.parseDouble(value);
 
-        assessedValue = Double.parseDouble(Value);
+        assessedValue = BigDecimal.valueOf(aValue);
 
         return assessedValue;
     }
@@ -93,6 +99,21 @@ public class Record {
         longitude = Double.parseDouble(aLongitude);
 
         return longitude;
+    }
+
+    @Override
+    public int compareTo(Record other) {
+        return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "A Record:" +
+                "\nAccount Number = " + this.accountID +
+                "\nHouse Address = " + this.aHouse +
+                "\nAssessed Value = $" + this.assessmentValue +
+                "\nNeighbourhood = " + this.aWard +
+                "\nLocation = " + geography;
     }
 }
 

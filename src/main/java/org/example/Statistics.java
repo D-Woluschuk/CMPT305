@@ -2,6 +2,7 @@ package org.example;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Statistics {
 
@@ -14,22 +15,22 @@ public class Statistics {
     }
 
 
-    public static BigDecimal highestAssessedValue(ArrayList<String[]> data){
+    public static BigDecimal highestAssessedValue(List<Record> data){
 
-        String[] firstLine = data.get(0);
-        String ID = "";
-        BigDecimal maxValue = new BigDecimal(firstLine[8]);
+        Record firstLine = data.get(0);
+        int Id;
+        BigDecimal maxValue = firstLine.getAssessedValue();
 
-        for (String[] line: data) {
-            BigDecimal aValue = new BigDecimal(line[8]);
+        for (Record line: data) {
+            BigDecimal aValue = line.getAssessedValue();
 
             if (aValue.compareTo(maxValue) > 0){
                 maxValue = aValue;
-                ID = line[0];
+
             }
 
         }
-        System.out.println("The ID of highest is: " + ID);
+        //System.out.println("The ID of highest is: " + ID);
         return maxValue;
     }
 
