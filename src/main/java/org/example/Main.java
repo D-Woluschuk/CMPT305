@@ -3,9 +3,7 @@ package org.example;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 
 public class Main {
@@ -15,7 +13,7 @@ public class Main {
         List<Record> fileContents;
         int size;
 
-        filePath = CSV.getFilePath();
+        filePath = UserInput.getFilePath();
         fileCheck = CSV.checkFile(filePath);
 
         if (fileCheck){

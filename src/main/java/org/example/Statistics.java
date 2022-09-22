@@ -1,6 +1,5 @@
 package org.example;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -19,7 +18,6 @@ public class Statistics {
     public static double highestAssessedValue(List<Record> data){
 
         Record firstLine = data.get(0);
-        int Id;
         double maxValue = firstLine.getAssessedValue();
 
         for (Record line: data) {
@@ -40,7 +38,6 @@ public class Statistics {
 
         Record firstLine = data.get(0);
         double minValue = firstLine.getAssessedValue();
-        String ID = "";
         for (Record line : data){
             double aValue = line.getAssessedValue();
             if (aValue < minValue){
@@ -54,9 +51,8 @@ public class Statistics {
     }
 
     public static double assessedValueRange(double highestValue, double lowestValue){
-        double range = highestValue - lowestValue;
 
-        return range;
+        return highestValue - lowestValue;
     }
 
     public static double assessedValueMean(List<Record> recordsList){
@@ -66,9 +62,8 @@ public class Statistics {
             assessedSum += (record.getAssessedValue());
 
         }
-        double assessedMean = assessedSum / size;
 
-        return assessedMean;
+        return assessedSum / size;
     }
 
     public static double assessedValueMedian(List<Record> recordsList){

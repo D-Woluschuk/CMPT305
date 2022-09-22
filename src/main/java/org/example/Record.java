@@ -30,13 +30,6 @@ public class Record implements Comparable<Record> {
         this.geography = geography;
         this.assessmentClass = assessmentClass;
 
-        /*
-        this.assessmentClass1 = assessmentClass1;
-        this.assessmentClass2 = assessmentClass2;
-        this.assessmentClass3 = assessmentClass3;
-        this.assessedClass1 = assessedClass1;
-        this.assessedClass2 = assessedClass2;
-        this.assessedClass3 = assessedClass3;*/
 
     }
 
@@ -58,12 +51,8 @@ public class Record implements Comparable<Record> {
 
 
     public static double assessedValue(String value){
-        double assessedValue= Double.parseDouble(value);
-        //double aValue
 
-        //assessedValue = BigDecimal.valueOf(aValue);
-        //assessedValue = assessedValue.setScale(2);
-        return assessedValue;
+        return Double.parseDouble(value);
     }
 
     public static double getLatitude(String aLatitude){
