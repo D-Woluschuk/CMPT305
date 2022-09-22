@@ -16,11 +16,8 @@ public class Record implements Comparable<Record> {
     private double assessmentValue;
 
 
-
-
-
     public Record(int accID, House aHouse, Ward aWard, double assessmentValue, Geography geography, Assessment assessmentClass
-                  ){
+    ) {
 
 
         this.accountID = accID;
@@ -34,28 +31,27 @@ public class Record implements Comparable<Record> {
     }
 
 
-    public int getAccountID(){
+    public int getAccountID() {
         return this.accountID;
     }
 
-    public static int convertAccNum(String accountNumber){
+    public static int convertAccNum(String accountNumber) {
         int accNum;
         accNum = Integer.parseInt(accountNumber);
         return accNum;
     }
 
-    public double getAssessedValue(){
+    public double getAssessedValue() {
         return this.assessmentValue;
     }
 
 
-
-    public static double assessedValue(String value){
+    public static double assessedValue(String value) {
 
         return Double.parseDouble(value);
     }
 
-    public static double getLatitude(String aLatitude){
+    public static double getLatitude(String aLatitude) {
         double latitude;
 
         latitude = Double.parseDouble(aLatitude);
@@ -63,7 +59,7 @@ public class Record implements Comparable<Record> {
         return latitude;
     }
 
-    public static double getLongitude(String aLongitude){
+    public static double getLongitude(String aLongitude) {
         double longitude;
 
         longitude = Double.parseDouble(aLongitude);
@@ -92,7 +88,7 @@ public class Record implements Comparable<Record> {
         if (this == obj)
             return true;
 
-        if (!(obj instanceof Record record)){
+        if (!(obj instanceof Record record)) {
             return false;
         }
 
@@ -108,19 +104,3 @@ public class Record implements Comparable<Record> {
         return Objects.hash(accountID, aHouse, assessmentValue, aWard, geography);
     }
 }
-
-    /*public Record(int accID,
-                  String address,
-                  boolean garageStatus,
-                  int neighID,
-                  String neighbourhoodName,
-                  String wardName,
-                  double assessedValue,
-                  double geoLat,
-                  double geoLong,
-                  double assessmentClass1,
-                  double assessmentClass2,
-                  double assessmentClass3,
-                  String assessedClass1,
-                  String assessedClass2,
-                  String assessedClass3){*/

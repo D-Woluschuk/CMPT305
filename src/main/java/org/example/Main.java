@@ -40,9 +40,7 @@ public class Main {
             if (aRecord != null){
                 System.out.println(aRecord);
             }
-            else {
-                System.out.println("Sorry, the account number not found.");
-            }
+
             //CSV.printData(fileContents);
         }
 

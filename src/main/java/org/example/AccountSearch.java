@@ -20,7 +20,7 @@ public class AccountSearch {
 
     public static boolean accountInputCheck(String anAccNumber){
 
-        return !anAccNumber.matches("[a-zA-Z]+");
+        return anAccNumber.matches("[a-zA-Z]+");
 
     }
 

@@ -94,29 +94,4 @@ public class CSV {
         return recordList;
     }
 
-
-    public static void printData(ArrayList<String[]> data){
-
-
-        for (String[] row: data) {
-            System.out.println(row[0]);
-            System.out.println(row[1]);
-            System.out.println(row[2]);
-            System.out.println(row[3]);
-            System.out.println(row[4]);
-            System.out.println(row[5]);
-            System.out.println(row[6]);
-            System.out.println(row[7]);
-            System.out.println();
-        }
-
-    }
-
-
-
-
-
-
-
-
 }
