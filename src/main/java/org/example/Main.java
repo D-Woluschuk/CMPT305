@@ -13,7 +13,7 @@ public class Main {
         List<Record> fileContents;
         int size;
 
-        filePath = UserInput.getFilePath();
+        filePath = UserInput.getFileName();
         fileCheck = CSV.checkFile(filePath);
 
         if (fileCheck){

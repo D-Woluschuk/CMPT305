@@ -12,9 +12,9 @@ public class UserInput {
         return userInput;
     }
 
-    public static String getFilePath(){
+    public static String getFileName(){
         //String filePath = "C:\\Users\\wolus\\Desktop\\stocks.csv";
-        String filePath = "C:\\Users\\wolus\\Desktop\\Property_Assessment_Data_2022.csv";
+        String fileName = "C:\\Users\\wolus\\Desktop\\Property_Assessment_Data_2022.csv";
         //String filePath = "/Users/dylanwoluschuk/Desktop/Property_Assessment_Data_2022.csv";
 
 
@@ -23,7 +23,7 @@ public class UserInput {
         //filePath = input.nextLine();
         //System.out.println("File path entered is: " + filePath);
 
-        return filePath;
+        return fileName;
     }
 
 }
