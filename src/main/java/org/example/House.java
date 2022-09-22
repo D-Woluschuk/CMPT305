@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Objects;
+
 public class House {
 
     private String houseNumber;
@@ -42,5 +44,22 @@ public class House {
         return aHouse;
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(suiteNumber, houseNumber, streetName, garageStatus);
+    }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+
+        if (!(obj instanceof House aHouse))
+            return false;
+
+        return aHouse.suiteNumber.equals(this.suiteNumber) &&
+                aHouse.houseNumber.equals(this.houseNumber) &&
+                aHouse.streetName.equals(this.streetName) &&
+                aHouse.garageStatus.equals(this.garageStatus);
+    }
 }

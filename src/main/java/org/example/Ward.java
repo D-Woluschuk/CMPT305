@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Objects;
+
 public class Ward {
     private String wardName;
     private Neighbourhood aNeighbourhood;
@@ -12,5 +14,21 @@ public class Ward {
     @Override
     public String toString() {
         return "(" + this.wardName + "), " + aNeighbourhood;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+
+        if (!(obj instanceof Ward ward))
+            return false;
+
+        return ward.wardName.equals(this.wardName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(wardName, aNeighbourhood);
     }
 }

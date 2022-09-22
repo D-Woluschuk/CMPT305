@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Objects;
+
 public class Geography {
 
     private double latitude;
@@ -13,5 +15,21 @@ public class Geography {
     @Override
     public String toString() {
         return "(" + longitude + ", " + latitude + ")";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+
+        if (!(obj instanceof Geography geography))
+            return false;
+
+        return latitude == geography.latitude && longitude == geography.longitude;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(latitude, longitude);
     }
 }

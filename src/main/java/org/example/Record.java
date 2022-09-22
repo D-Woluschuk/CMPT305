@@ -1,32 +1,25 @@
 package org.example;
 
-import java.math.BigDecimal;
+import java.util.Objects;
 
 public class Record implements Comparable<Record> {
 
-    private int accountID,
-            neighbourhoodID;
-
+    private int accountID;
 
     private House aHouse;
     private Ward aWard;
 
     private Geography geography;
 
-    private String address,
-            assessedClass1,
-            assessedClass2,
-            assessedClass3;
+    private Assessment assessmentClass;
 
-    private BigDecimal assessmentValue,
-            assessmentClass1,
-            assessmentClass2,
-            assessmentClass3;
+    private double assessmentValue;
 
 
 
 
-    public Record(int accID, House aHouse, Ward aWard, BigDecimal assessmentValue, Geography geography
+
+    public Record(int accID, House aHouse, Ward aWard, double assessmentValue, Geography geography, Assessment assessmentClass
                   ){
 
 
@@ -35,6 +28,7 @@ public class Record implements Comparable<Record> {
         this.aWard = aWard;
         this.assessmentValue = assessmentValue;
         this.geography = geography;
+        this.assessmentClass = assessmentClass;
 
         /*
         this.assessmentClass1 = assessmentClass1;
@@ -47,41 +41,28 @@ public class Record implements Comparable<Record> {
     }
 
 
-    public static int getAccNum(String accountNumber){
+    public int getAccountID(){
+        return this.accountID;
+    }
+
+    public static int convertAccNum(String accountNumber){
         int accNum;
         accNum = Integer.parseInt(accountNumber);
         return accNum;
     }
 
-    public BigDecimal getAssessedValue(){
+    public double getAssessedValue(){
         return this.assessmentValue;
     }
 
-    public static String getFullAddress(String suite, String houseNum, String streetName){
-        return suite + " " + houseNum + " " + streetName;
-    }
 
-    public static boolean garageStatus(String garage){
-        if (garage.equals("N"))
-            return false;
-        else
-            return true;
-    }
 
-    public static int neighID (String aNeighID){
-        int neighbourhoodID;
+    public static double assessedValue(String value){
+        double assessedValue= Double.parseDouble(value);
+        //double aValue
 
-        neighbourhoodID = Integer.parseInt(aNeighID);
-
-        return neighbourhoodID;
-    }
-
-    public static BigDecimal assessedValue(String value){
-        BigDecimal assessedValue;
-        double aValue = Double.parseDouble(value);
-
-        assessedValue = BigDecimal.valueOf(aValue);
-
+        //assessedValue = BigDecimal.valueOf(aValue);
+        //assessedValue = assessedValue.setScale(2);
         return assessedValue;
     }
 
@@ -112,8 +93,30 @@ public class Record implements Comparable<Record> {
                 "\nAccount Number = " + this.accountID +
                 "\nHouse Address = " + this.aHouse +
                 "\nAssessed Value = $" + this.assessmentValue +
+                "\nAssessment Class = " + this.assessmentClass +
                 "\nNeighbourhood = " + this.aWard +
                 "\nLocation = " + geography;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+
+        if (!(obj instanceof Record record)){
+            return false;
+        }
+
+        return (this.accountID == record.accountID) &&
+                ((this.aHouse).equals(record.aHouse)) &&
+                (this.assessmentValue == (record.assessmentValue)) &&
+                (this.aWard.equals(record.aWard)) &&
+                (this.geography.equals(record.geography));
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(accountID, aHouse, assessmentValue, aWard, geography);
     }
 }
 
