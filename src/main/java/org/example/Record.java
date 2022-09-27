@@ -45,6 +45,12 @@ public class Record implements Comparable<Record> {
         return this.assessmentValue;
     }
 
+    public Neighbourhood getNeighbourhood(){
+        return this.aWard.getaNeighbourhood();
+    }
+
+
+
 
     public static double assessedValue(String value) {
 
@@ -69,7 +75,7 @@ public class Record implements Comparable<Record> {
 
     @Override
     public int compareTo(Record other) {
-        return 0;
+        return Double.compare(this.assessmentValue, other.assessmentValue);
     }
 
     @Override

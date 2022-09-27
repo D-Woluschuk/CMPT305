@@ -18,6 +18,14 @@ public class Neighbourhood {
         return "(" + this.neighbourhoodId + ") " + this.neighbourhoodName;
     }
 
+    public String getNeighbourhoodId(){
+        return this.neighbourhoodId;
+    }
+
+    public String getNeighbourhoodName(){
+        return this.neighbourhoodName;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj == this)

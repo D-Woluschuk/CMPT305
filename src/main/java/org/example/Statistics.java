@@ -50,7 +50,10 @@ public class Statistics {
 
     }
 
-    public static double assessedValueRange(double highestValue, double lowestValue){
+    public static double assessedValueRange(List<Record> data){
+
+        double highestValue = highestAssessedValue(data);
+        double lowestValue = lowestAssessedValue(data);
 
         return highestValue - lowestValue;
     }

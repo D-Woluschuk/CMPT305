@@ -6,7 +6,6 @@ public class AccountSearch {
 
     public static Record accountSearch(String anAccNumber, List<Record> recordList){
         if (!accountInputCheck(anAccNumber)){
-            System.out.println("Error: invalid account number...\nSorry, account number not found");
             return null;
         }
         for (Record record: recordList) {

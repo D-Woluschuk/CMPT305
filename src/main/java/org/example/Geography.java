@@ -14,7 +14,7 @@ public class Geography {
 
     @Override
     public String toString() {
-        return "(" + longitude + ", " + latitude + ")";
+        return "(" + latitude + ", " + longitude + ")";
     }
 
     @Override
@@ -25,7 +25,7 @@ public class Geography {
         if (!(obj instanceof Geography geography))
             return false;
 
-        return latitude == geography.latitude && longitude == geography.longitude;
+        return (latitude == geography.latitude) && (longitude == geography.longitude);
     }
 
     @Override

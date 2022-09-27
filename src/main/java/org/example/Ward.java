@@ -11,6 +11,15 @@ public class Ward {
         this.aNeighbourhood = aNeighbourhood;
     }
 
+
+    public String getWardName(){
+        return this.wardName;
+    }
+
+    public Neighbourhood getaNeighbourhood(){
+        return this.aNeighbourhood;
+    }
+
     @Override
     public String toString() {
         return "(" + this.wardName + "), " + aNeighbourhood;

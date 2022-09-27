@@ -13,14 +13,14 @@ public class UserInput {
     }
 
     public static String getFileName(){
-        //String filePath = "C:\\Users\\wolus\\Desktop\\stocks.csv";
-        String fileName = "C:\\Users\\wolus\\Desktop\\Property_Assessment_Data_2022.csv";
-        //String filePath = "/Users/dylanwoluschuk/Desktop/Property_Assessment_Data_2022.csv";
+        //String fileName = "C:\\Users\\wolus\\Desktop\\stocks.csv";
+        //String fileName = "C:\\Users\\wolus\\Desktop\\Property_Assessment_Data_2022.csv";
+        String fileName = "/Users/dylanwoluschuk/Desktop/Property_Assessment_Data_2022.csv";
 
 
         //Scanner input = new Scanner(System.in);
-        //System.out.println("Enter filename, including path: ");
-        //filePath = input.nextLine();
+        //System.out.print("CSV filename: ");
+        //String fileName = input.nextLine();
         //System.out.println("File path entered is: " + filePath);
 
         return fileName;
