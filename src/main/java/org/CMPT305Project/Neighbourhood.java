@@ -3,11 +3,11 @@ package org.CMPT305Project;
 import java.util.Objects;
 
 public class Neighbourhood {
-    private String neighbourhoodId;
+    private int neighbourhoodId;
     private String neighbourhoodName;
 
 
-    public Neighbourhood(String neighId, String neighName){
+    public Neighbourhood(int neighId, String neighName){
 
         this.neighbourhoodId = neighId;
         this.neighbourhoodName = neighName;
@@ -18,7 +18,7 @@ public class Neighbourhood {
         return "(" + this.neighbourhoodId + ") " + this.neighbourhoodName;
     }
 
-    public String getNeighbourhoodId(){
+    public int getNeighbourhoodId(){
         return this.neighbourhoodId;
     }
 
@@ -34,12 +34,12 @@ public class Neighbourhood {
         if (!(obj instanceof Neighbourhood neigh))
             return false;
 
-        return neigh.neighbourhoodId.equals(this.neighbourhoodId) && neigh.neighbourhoodName.equals(this.neighbourhoodName);
+        return neigh.neighbourhoodId == (this.neighbourhoodId);
 
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(neighbourhoodId, neighbourhoodName);
+        return Objects.hash(neighbourhoodId);
     }
 }

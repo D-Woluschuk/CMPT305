@@ -29,7 +29,6 @@ public class Statistics {
             }
 
         }
-        //System.out.println("The ID of highest is: " + ID);
         return maxValue;
     }
 
@@ -42,10 +41,8 @@ public class Statistics {
             double aValue = line.getAssessedValue();
             if (aValue < minValue){
                 minValue = aValue;
-                //ID = line[0];
             }
         }
-        //System.out.println("The ID of the lowest valued is: " + ID);
         return minValue;
 
     }
@@ -92,6 +89,9 @@ public class Statistics {
 
         return median;
     }
+
+
+
 
 
 

@@ -8,19 +8,17 @@ public class AccountSearch {
         if (!accountInputCheck(anAccNumber)){
             return null;
         }
+
         for (Record record: recordList) {
             if (record.getAccountID() == Record.convertAccNum(anAccNumber)){
                 return record;
             }
         }
-
         return null;
     }
 
     public static boolean accountInputCheck(String anAccNumber){
-
-        return anAccNumber.matches("[a-zA-Z]+");
-
+        return anAccNumber.matches("[0-9]+");
     }
 
 }

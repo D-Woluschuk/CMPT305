@@ -11,7 +11,7 @@ public class NeighbourhoodSearch {
         List<Record> neighRecords = new ArrayList<>();
 
         for (Record aRecord : recordList){
-            if ((aNeighbourhood.toUpperCase()).equals(aRecord.getNeighbourhood().getNeighbourhoodName())){
+            if ((aNeighbourhood.equalsIgnoreCase(aRecord.getNeighbourhood().getNeighbourhoodName()))){
                 neighRecords.add(aRecord);
 
             }

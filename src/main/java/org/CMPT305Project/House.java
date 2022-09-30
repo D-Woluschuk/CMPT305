@@ -29,17 +29,21 @@ public class House {
         return this.garageStatus;
     }
 
+    public String getSuiteNumber() {
+        return this.suiteNumber;
+    }
+
     @Override
     public String toString() {
         String aHouse = "";
         if (this.suiteNumber.length() != 0) {
-            aHouse += " " + this.suiteNumber;
+            aHouse += this.suiteNumber + "-";
         }
         if (this.houseNumber.length() != 0){
-            aHouse += " " + this.houseNumber;
+            aHouse += this.houseNumber + " ";
         }
         if (this.streetName.length() != 0){
-            aHouse += " " + this.streetName;
+            aHouse += this.streetName;
         }
         return aHouse;
     }

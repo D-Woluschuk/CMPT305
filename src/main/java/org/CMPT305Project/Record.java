@@ -1,5 +1,6 @@
 package org.CMPT305Project;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Record implements Comparable<Record> {
@@ -11,13 +12,12 @@ public class Record implements Comparable<Record> {
 
     private Geography geography;
 
-    private Assessment assessmentClass;
+    private List<Assessment> assessmentClass;
 
     private double assessmentValue;
 
 
-    public Record(int accID, House aHouse, Ward aWard, double assessmentValue, Geography geography, Assessment assessmentClass
-    ) {
+    public Record(int accID, House aHouse, Ward aWard, double assessmentValue, Geography geography, List<Assessment> assessmentClass) {
 
 
         this.accountID = accID;
@@ -49,19 +49,24 @@ public class Record implements Comparable<Record> {
         return this.aWard.getaNeighbourhood();
     }
 
+    public List<Assessment> getAssessment(){
+        return this.assessmentClass;
+    }
 
+    public House getaHouse() {
+        return this.aHouse;
+    }
 
     @Override
     public int compareTo(Record other) {
-        return Integer.compare(this.accountID, other.accountID);
+        return Double.compare(this.assessmentValue, other.assessmentValue);
     }
 
     @Override
     public String toString() {
-        return "A Record:" +
-                "\nAccount Number = " + this.accountID +
+        return  "\nAccount Number = " + this.accountID +
                 "\nHouse Address = " + this.aHouse +
-                "\nAssessed Value = $" + this.assessmentValue +
+                "\nAssessed Value = " + Conversions.convertToDollarValue(this.assessmentValue) +
                 "\nAssessment Class = " + this.assessmentClass +
                 "\nNeighbourhood = " + this.aWard +
                 "\nLocation = " + geography;
@@ -76,15 +81,11 @@ public class Record implements Comparable<Record> {
             return false;
         }
 
-        return (this.accountID == record.accountID) &&
-                ((this.aHouse).equals(record.aHouse)) &&
-                (this.assessmentValue == (record.assessmentValue)) &&
-                (this.aWard.equals(record.aWard)) &&
-                (this.geography.equals(record.geography));
+        return (this.accountID == record.accountID);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountID, aHouse, assessmentValue, aWard, geography);
+        return Objects.hash(accountID);
     }
 }

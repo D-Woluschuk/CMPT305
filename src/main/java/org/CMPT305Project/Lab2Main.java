@@ -1,8 +1,6 @@
 package org.CMPT305Project;
 
 import java.io.IOException;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.List;
 
 
@@ -16,7 +14,7 @@ public class Lab2Main {
             List<Record> fileContents = CSV.readCSV(filePath);
             allAssessmentsInfo(fileContents);
             accountStatistics(fileContents);
-            neighStatistics(fileContents);
+            //neighStatistics(fileContents);
         }
 
         else {
@@ -29,32 +27,25 @@ public class Lab2Main {
 
 
     public static void allAssessmentsInfo(List<Record> fileContents){
-        int size;
 
         System.out.println("Descriptive statistics of all property assessments");
 
-        size = Statistics.getNumberOfEntries(fileContents);
-        System.out.println("Number of entries: " + size);
+        System.out.println("Count = " + Statistics.getNumberOfEntries(fileContents));
 
-        double maxValue = Statistics.highestAssessedValue(fileContents);
-        System.out.println("The highest assessed value is: $" + BigDecimal.valueOf(maxValue).setScale(2, RoundingMode.HALF_UP));
+        System.out.println("Min = " + Conversions.convertToDollarValue(Statistics.lowestAssessedValue(fileContents)));
 
-        double minValue = Statistics.lowestAssessedValue(fileContents);
-        System.out.println("The lowest assessed value is: $" + BigDecimal.valueOf(minValue).setScale(2, RoundingMode.HALF_UP));
+        System.out.println("Max = " + Conversions.convertToDollarValue(Statistics.highestAssessedValue(fileContents)));
 
-        double rangeValue = Statistics.assessedValueRange(fileContents);
-        System.out.println("The range of assessed values is: $" + BigDecimal.valueOf(rangeValue).setScale(2, RoundingMode.HALF_UP));
+        System.out.println("Range = " + Conversions.convertToDollarValue(Statistics.assessedValueRange(fileContents)));
 
-        double meanValue = Statistics.assessedValueMean(fileContents);
+        System.out.println("Mean = " + Conversions.convertToDollarValue(Statistics.assessedValueMean(fileContents)));
 
-        System.out.println("The mean of assessed values is: $" + BigDecimal.valueOf(meanValue).setScale(2, RoundingMode.HALF_UP));
-        double medianValue = Statistics.assessedValueMedian(fileContents);
-        System.out.println("The median of the assessed values is: $" + BigDecimal.valueOf(medianValue).setScale(2, RoundingMode.HALF_UP));
+        System.out.println("Median = " + Conversions.convertToDollarValue(Statistics.assessedValueMedian(fileContents)));
     }
 
     public static void accountStatistics(List<Record> fileContents){
         String input;
-        System.out.print("Find a property assessment by account number: ");
+        System.out.print("\nFind a property assessment by account number: ");
         input = UserInput.getUserInput();
         Record aRecord = AccountSearch.accountSearch(input, fileContents);
         if (aRecord != null){
@@ -67,16 +58,22 @@ public class Lab2Main {
     }
 
     public static void neighStatistics(List<Record> fileContents){
-        System.out.print("Neighbourhood: ");
+        System.out.print("\nNeighbourhood: ");
         String input = UserInput.getUserInput();
         List<Record> neighSearch = NeighbourhoodSearch.neighbourhoodSearch(input, fileContents);
         if (neighSearch != null){
+
             System.out.println("Count = " + neighSearch.size());
-            System.out.println("min = " + Statistics.lowestAssessedValue(neighSearch));
-            System.out.println("max = " + Statistics.highestAssessedValue(neighSearch));
-            System.out.println("range = " + Statistics.assessedValueRange(neighSearch));
-            System.out.println("mean = " + Statistics.assessedValueMean(neighSearch));
-            System.out.println("median = " + Statistics.assessedValueMedian(neighSearch));
+
+            System.out.println("Min = " + Conversions.convertToDollarValue(Statistics.lowestAssessedValue(neighSearch)));
+
+            System.out.println("Max = " + Conversions.convertToDollarValue(Statistics.highestAssessedValue(neighSearch)));
+
+            System.out.println("Range = " + Conversions.convertToDollarValue(Statistics.assessedValueRange(neighSearch)));
+
+            System.out.println("Mean = " + Conversions.convertToDollarValue(Statistics.assessedValueMean(neighSearch)));
+
+            System.out.println("Median = " + Conversions.convertToDollarValue(Statistics.assessedValueMedian(neighSearch)));
 
         }
         else {

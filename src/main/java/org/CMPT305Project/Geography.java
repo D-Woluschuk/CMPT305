@@ -32,4 +32,12 @@ public class Geography {
     public int hashCode() {
         return Objects.hash(latitude, longitude);
     }
+
+    public double getLatitude() {
+        return this.latitude;
+    }
+
+    public double getLongitude() {
+        return this.longitude;
+    }
 }
