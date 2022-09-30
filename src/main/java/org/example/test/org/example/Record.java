@@ -1,4 +1,4 @@
-package org.example;
+package test.org.example;
 
 import java.util.Objects;
 
@@ -75,7 +75,7 @@ public class Record implements Comparable<Record> {
 
     @Override
     public int compareTo(Record other) {
-        return Double.compare(this.assessmentValue, other.assessmentValue);
+        return Integer.compare(this.accountID, other.accountID);
     }
 
     @Override

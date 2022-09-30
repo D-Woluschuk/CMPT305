@@ -1,4 +1,4 @@
-package org.example;
+package test.org.example;
 
 import java.util.Objects;
 
@@ -33,7 +33,7 @@ public class Ward {
         if (!(obj instanceof Ward ward))
             return false;
 
-        return ward.wardName.equals(this.wardName);
+        return ward.wardName.equals(this.wardName) && ward.aNeighbourhood.equals(this.aNeighbourhood);
     }
 
     @Override

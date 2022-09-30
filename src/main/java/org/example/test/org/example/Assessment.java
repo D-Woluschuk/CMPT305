@@ -1,4 +1,4 @@
-package org.example;
+package test.org.example;
 
 import java.util.Objects;
 
@@ -43,4 +43,6 @@ public class Assessment {
                 this.class2 + ": " + this.percent2 + "%, " +
                 this.class3 + ": " + this.percent3 + "%]";
     }
+
+
 }
