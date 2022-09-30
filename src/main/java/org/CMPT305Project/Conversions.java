@@ -1,4 +1,4 @@
-package org.example;
+package org.CMPT305Project;
 
 public class Conversions {
 

@@ -1,4 +1,4 @@
-package org.example;
+package org.CMPT305Project;
 
 import java.io.IOException;
 import java.math.BigDecimal;
