@@ -1,4 +1,4 @@
-package test.org.example;
+package org.example;
 
 import java.io.IOException;
 import java.math.BigDecimal;

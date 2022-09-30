@@ -1,4 +1,4 @@
-package test.org.example;
+package org.example;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -25,22 +25,21 @@ public class CSV {
         //To remove header
         input.readLine();
 
-        //ArrayList<String[]> aLine = new ArrayList<>();
         List<Record> recordList = new ArrayList<>();
 
 
         while ((line = input.readLine()) != null) {
             String[] splitLine = line.split(",");
-            int accNum = Record.convertAccNum(splitLine[0]);
+            int accNum = Conversions.convertAccNum(splitLine[0]);
 
             House aHouse = new House(splitLine[1], splitLine[2], splitLine[3], splitLine[4]);
             Neighbourhood aNeigh = new Neighbourhood(splitLine[5], splitLine[6]);
             Ward aWard = new Ward(splitLine[7], aNeigh);
 
-            double value = Record.assessedValue(splitLine[8]);
+            double value = Conversions.convertAssessedValue(splitLine[8]);
 
-            double lat = Record.getLatitude(splitLine[9]);
-            double longitude = Record.getLongitude(splitLine[10]);
+            double lat = Conversions.convertLatitude(splitLine[9]);
+            double longitude = Conversions.convertLongitude(splitLine[10]);
 
             Geography geography = new Geography(lat, longitude);
 

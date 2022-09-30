@@ -1,4 +1,4 @@
-package test.org.example;
+package org.example;
 
 import java.util.Objects;
 
@@ -50,28 +50,6 @@ public class Record implements Comparable<Record> {
     }
 
 
-
-
-    public static double assessedValue(String value) {
-
-        return Double.parseDouble(value);
-    }
-
-    public static double getLatitude(String aLatitude) {
-        double latitude;
-
-        latitude = Double.parseDouble(aLatitude);
-
-        return latitude;
-    }
-
-    public static double getLongitude(String aLongitude) {
-        double longitude;
-
-        longitude = Double.parseDouble(aLongitude);
-
-        return longitude;
-    }
 
     @Override
     public int compareTo(Record other) {

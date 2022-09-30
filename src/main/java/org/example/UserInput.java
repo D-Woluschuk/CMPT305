@@ -1,4 +1,4 @@
-package test.org.example;
+package org.example;
 
 import java.util.Scanner;
 
@@ -14,8 +14,8 @@ public class UserInput {
 
     public static String getFileName(){
         //String fileName = "C:\\Users\\wolus\\Desktop\\stocks.csv";
-        //String fileName = "C:\\Users\\wolus\\Desktop\\Property_Assessment_Data_2022.csv";
-        String fileName = "/Users/dylanwoluschuk/Desktop/Property_Assessment_Data_2022.csv";
+        String fileName = "C:\\Users\\wolus\\Desktop\\Property_Assessment_Data_2022.csv";
+        //String fileName = "/Users/dylanwoluschuk/Desktop/Property_Assessment_Data_2022.csv";
 
 
         //Scanner input = new Scanner(System.in);
