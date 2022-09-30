@@ -56,10 +56,10 @@ class WardTest {
         assertEquals(true, wardTest1.equals(wardTest5));
 
         //False Values
-        assertEquals(false, wardTest3.equals(null));
+        assertEquals(false, wardTest3 == null);
         assertEquals(false, wardTest3.equals(wardTest2));
         assertEquals(false, wardTest1.equals(wardTest3));
-        assertEquals(false, wardTest1.equals(null));
+        assertEquals(false, wardTest1 == null);
     }
 
     @Test
