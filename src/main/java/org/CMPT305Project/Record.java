@@ -35,11 +35,6 @@ public class Record implements Comparable<Record> {
         return this.accountID;
     }
 
-    public static int convertAccNum(String accountNumber) {
-        int accNum;
-        accNum = Integer.parseInt(accountNumber);
-        return accNum;
-    }
 
     public double getAssessedValue() {
         return this.assessmentValue;

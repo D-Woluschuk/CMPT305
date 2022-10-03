@@ -10,7 +10,7 @@ public class AccountSearch {
         }
 
         for (Record record: recordList) {
-            if (record.getAccountID() == Record.convertAccNum(anAccNumber)){
+            if (record.getAccountID() == Conversions.convertAccNum(anAccNumber)){
                 return record;
             }
         }

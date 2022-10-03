@@ -14,11 +14,11 @@ public class Lab2Main {
             List<Record> fileContents = CSV.readCSV(filePath);
             allAssessmentsInfo(fileContents);
             accountStatistics(fileContents);
-            //neighStatistics(fileContents);
+            neighStatistics(fileContents);
         }
 
         else {
-            System.out.println("Could not find the file!\n Please try again!");
+            System.out.println("Could not find the file!\nPlease try again!");
         }
 
     }

@@ -8,6 +8,7 @@ public class Conversions {
 
     public static int convertAccNum(String accountNumber) {
         int accNum;
+
         try{
             accNum = Integer.parseInt(accountNumber);
         } catch (NumberFormatException n1){
@@ -21,7 +22,12 @@ public class Conversions {
     public static double convertAssessedValue(String value) {
         double assessedValue;
 
+        if (value.contains("e") || value.contains("E")){
+            assessedValue = 0;
+            return assessedValue;
+        }
         try {
+
             assessedValue = Double.parseDouble(value);
         } catch (NullPointerException | NumberFormatException exception){
             assessedValue = 0;
@@ -32,6 +38,10 @@ public class Conversions {
     public static double convertLatitude(String aLatitude) {
         double latitude;
 
+        if (!(aLatitude.contains("."))){
+            latitude = 0;
+            return latitude;
+        }
         try {
             latitude = Double.parseDouble(aLatitude);
         } catch (NullPointerException | NumberFormatException exception) {
@@ -43,6 +53,10 @@ public class Conversions {
     public static double convertLongitude(String aLongitude) {
         double longitude;
 
+        if (!(aLongitude.contains("."))){
+            longitude = 0;
+            return longitude;
+        }
         try {
             longitude = Double.parseDouble(aLongitude);
         } catch (NullPointerException | NumberFormatException exception) {
