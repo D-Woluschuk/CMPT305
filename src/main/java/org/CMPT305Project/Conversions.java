@@ -4,8 +4,16 @@ package org.CMPT305Project;
 import java.text.NumberFormat;
 import java.util.Locale;
 
+/**
+ *
+ */
 public class Conversions {
 
+    /**
+     *
+     * @param accountNumber
+     * @return
+     */
     public static int convertAccNum(String accountNumber) {
         int accNum;
 
@@ -19,6 +27,11 @@ public class Conversions {
     }
 
 
+    /**
+     *
+     * @param value
+     * @return
+     */
     public static double convertAssessedValue(String value) {
         double assessedValue;
 
@@ -35,6 +48,11 @@ public class Conversions {
         return assessedValue;
     }
 
+    /**
+     *
+     * @param aLatitude
+     * @return
+     */
     public static double convertLatitude(String aLatitude) {
         double latitude;
 
@@ -50,6 +68,11 @@ public class Conversions {
         return latitude;
     }
 
+    /**
+     *
+     * @param aLongitude
+     * @return
+     */
     public static double convertLongitude(String aLongitude) {
         double longitude;
 
@@ -65,6 +88,11 @@ public class Conversions {
         return longitude;
     }
 
+    /**
+     *
+     * @param amount
+     * @return
+     */
     public static String convertToDollarValue(double amount){
 
         Locale locale = Locale.getDefault();
@@ -80,6 +108,11 @@ public class Conversions {
 
     }
 
+    /**
+     *
+     * @param anId
+     * @return
+     */
     public static int convertNeighbourhoodId(String anId){
         int convertedValue;
 

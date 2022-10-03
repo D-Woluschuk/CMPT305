@@ -3,12 +3,20 @@ package org.CMPT305Project;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ *
+ */
 public class Lab3Main {
+
+    /**
+     *
+     * @param args
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
         System.out.print("Assessment Class: ");
         String input = UserInput.getUserInput();
         System.out.println("Statistics (assessment class = " + input + ")");
-
 
         String filePath = UserInput.getFileName();
         boolean fileCheck = CSV.checkFile(filePath);
@@ -28,20 +36,9 @@ public class Lab3Main {
             System.out.println("Mean = " + Conversions.convertToDollarValue(Statistics.assessedValueMean(searchResults)));
 
             System.out.println("Median = " + Conversions.convertToDollarValue(Statistics.assessedValueMedian(searchResults)));
-
-
         }
-
         else {
             System.out.println("Could not find the file!\n Please try again!");
-
         }
-
-
-
-
-
-
-
     }
 }

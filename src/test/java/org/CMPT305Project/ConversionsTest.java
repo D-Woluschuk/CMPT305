@@ -23,8 +23,8 @@ class ConversionsTest {
         String accNum5 = "";
         String accNum6 = "a";
 
-        assertEquals(true, Conversions.convertAccNum(accNum1) == 1234567890);
-        assertEquals(true, Conversions.convertAccNum(accNum2) == 0);
+        assertTrue(Conversions.convertAccNum(accNum1) == 1234567890);
+        assertTrue(Conversions.convertAccNum(accNum2) == 0);
 
         result = Conversions.convertAccNum(accNum3);
         assertEquals(0, result);
@@ -49,8 +49,8 @@ class ConversionsTest {
         String value5 = "";
         String value6 = "a";
 
-        assertEquals(true, Conversions.convertAssessedValue(value1) == 1234567890);
-        assertEquals(true, Conversions.convertAssessedValue(value2) == 0);
+        assertTrue(Conversions.convertAssessedValue(value1) == 1234567890);
+        assertTrue(Conversions.convertAssessedValue(value2) == 0);
 
         result = Conversions.convertAssessedValue(value3);
         assertEquals(0, result);
@@ -77,8 +77,8 @@ class ConversionsTest {
         String value6 = "a";
 
 
-        assertEquals(true, Conversions.convertLatitude(value1) == 53.28372438334);
-        assertEquals(true, Conversions.convertLatitude(value2) == 0);
+        assertTrue(Conversions.convertLatitude(value1) == 53.28372438334);
+        assertTrue(Conversions.convertLatitude(value2) == 0);
 
 
         result = Conversions.convertLatitude(value3);
@@ -106,8 +106,8 @@ class ConversionsTest {
         String value6 = "b";
 
 
-        assertEquals(true, Conversions.convertLongitude(value1) == -113.28372438334);
-        assertEquals(true, Conversions.convertLatitude(value2) == 0.0);
+        assertTrue(Conversions.convertLongitude(value1) == -113.28372438334);
+        assertTrue(Conversions.convertLatitude(value2) == 0.0);
 
 
         result = Conversions.convertLongitude(value3);
@@ -176,8 +176,8 @@ class ConversionsTest {
         String neighID5 = "";
         String neighID6 = "k";
 
-        assertEquals(true, Conversions.convertNeighbourhoodId(neighID1) == 4758392);
-        assertEquals(true, Conversions.convertNeighbourhoodId(neighID2) == 0);
+        assertTrue(Conversions.convertNeighbourhoodId(neighID1) == 4758392);
+        assertTrue(Conversions.convertNeighbourhoodId(neighID2) == 0);
 
         result = Conversions.convertNeighbourhoodId(neighID3);
         assertEquals(0, result);

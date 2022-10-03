@@ -9,14 +9,27 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
+/**
+ *
+ */
 public class CSV {
 
+    /**
+     *
+     * @param pathToFile
+     * @return
+     */
     public static boolean checkFile(String pathToFile){
         File inputFile = new File(pathToFile);
         return inputFile.isFile();
     }
 
+    /**
+     *
+     * @param pathToFile
+     * @return
+     * @throws IOException
+     */
     public static List<Record> readCSV(String pathToFile) throws IOException {
 
         String line;
@@ -58,6 +71,11 @@ public class CSV {
     }
 
 
+    /**
+     *
+     * @param aLine
+     * @return
+     */
     public static List<Assessment> createAssessment(String [] aLine){
         double percentage;
         String className;

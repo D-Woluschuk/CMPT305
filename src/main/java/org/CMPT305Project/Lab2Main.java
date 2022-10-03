@@ -5,6 +5,12 @@ import java.util.List;
 
 
 public class Lab2Main {
+
+    /**
+     *
+     * @param args
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
 
         String filePath = UserInput.getFileName();
@@ -24,8 +30,10 @@ public class Lab2Main {
     }
 
 
-
-
+    /**
+     *
+     * @param fileContents
+     */
     public static void allAssessmentsInfo(List<Record> fileContents){
 
         System.out.println("Descriptive statistics of all property assessments");
@@ -43,6 +51,10 @@ public class Lab2Main {
         System.out.println("Median = " + Conversions.convertToDollarValue(Statistics.assessedValueMedian(fileContents)));
     }
 
+    /**
+     *
+     * @param fileContents
+     */
     public static void accountStatistics(List<Record> fileContents){
         String input;
         System.out.print("\nFind a property assessment by account number: ");
@@ -57,6 +69,10 @@ public class Lab2Main {
 
     }
 
+    /**
+     *
+     * @param fileContents
+     */
     public static void neighStatistics(List<Record> fileContents){
         System.out.print("\nNeighbourhood: ");
         String input = UserInput.getUserInput();

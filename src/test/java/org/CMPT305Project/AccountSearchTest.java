@@ -19,7 +19,7 @@ class AccountSearchTest {
     void accountSearch() {
         Record result1 = AccountSearch.accountSearch("1103530", recordList);
         assert result1 != null;
-        assertEquals(true, result1.getAccountID() == 1103530);
+        assertTrue(result1.getAccountID() == 1103530);
 
         Record result2 = AccountSearch.accountSearch("1234567890", recordList);
         assertNull(result2);
@@ -39,15 +39,15 @@ class AccountSearchTest {
         String accNum6 = "12EA56789";
         String accNum7 = "";
 
-        assertEquals(true, AccountSearch.accountInputCheck(accNum1));
-        assertEquals(true, AccountSearch.accountInputCheck(accNum3));
+        assertTrue(AccountSearch.accountInputCheck(accNum1));
+        assertTrue(AccountSearch.accountInputCheck(accNum3));
 
 
-        assertEquals(false, AccountSearch.accountInputCheck(accNum2));
-        assertEquals(false, AccountSearch.accountInputCheck(accNum4));
-        assertEquals(false, AccountSearch.accountInputCheck(accNum5));
-        assertEquals(false, AccountSearch.accountInputCheck(accNum6));
-        assertEquals(false, AccountSearch.accountInputCheck(accNum7));
+        assertFalse(AccountSearch.accountInputCheck(accNum2));
+        assertFalse(AccountSearch.accountInputCheck(accNum4));
+        assertFalse(AccountSearch.accountInputCheck(accNum5));
+        assertFalse(AccountSearch.accountInputCheck(accNum6));
+        assertFalse(AccountSearch.accountInputCheck(accNum7));
 
     }
 }

@@ -23,14 +23,14 @@ class WardTest {
     @Test
     void getWardName() {
         String expected = "Dene Ward";
-        assertEquals(true, expected.equalsIgnoreCase(wardTest1.getWardName()));
-        assertEquals(false, expected.equalsIgnoreCase(wardTest2.getWardName()));
+        assertTrue(expected.equalsIgnoreCase(wardTest1.getWardName()));
+        assertFalse(expected.equalsIgnoreCase(wardTest2.getWardName()));
     }
 
     @Test
     void getaNeighbourhood() {
         Neighbourhood expected = new Neighbourhood(2500, "Matt Berry");
-        assertEquals(true, expected.equals(neighTest1));
+        assertTrue(expected.equals(neighTest1));
     }
 
     @Test
@@ -40,26 +40,26 @@ class WardTest {
     @Test
     void testEquals() {
         //Reflexive
-        assertEquals(true, wardTest1.equals(wardTest1));
+        assertTrue(wardTest1.equals(wardTest1));
 
         //Symmetric
         Neighbourhood neighTest4 = new Neighbourhood(2500, "Matt Berry");
         Ward wardTest4 = new Ward("Dene Ward", neighTest4);
-        assertEquals(true, wardTest1.equals(wardTest4));
-        assertEquals(true, wardTest4.equals(wardTest1));
+        assertTrue(wardTest1.equals(wardTest4));
+        assertTrue(wardTest4.equals(wardTest1));
 
 
         //Transitive
         Neighbourhood neighTest5 = new Neighbourhood(2500, "Matt Berry");
         Ward wardTest5 = new Ward("Dene Ward", neighTest5);
-        assertEquals(true, wardTest4.equals(wardTest5));
-        assertEquals(true, wardTest1.equals(wardTest5));
+        assertTrue(wardTest4.equals(wardTest5));
+        assertTrue(wardTest1.equals(wardTest5));
 
         //False Values
-        assertEquals(false, wardTest3 == null);
-        assertEquals(false, wardTest3.equals(wardTest2));
-        assertEquals(false, wardTest1.equals(wardTest3));
-        assertEquals(false, wardTest1 == null);
+        assertFalse(wardTest3 == null);
+        assertFalse(wardTest3.equals(wardTest2));
+        assertFalse(wardTest1.equals(wardTest3));
+        assertFalse(wardTest1 == null);
     }
 
     @Test

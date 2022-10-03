@@ -21,28 +21,28 @@ class GeographyTest {
     @Test
     void testEquals() {
         //reflexive
-        assertEquals(true, geography1.equals(geography1));
+        assertTrue(geography1.equals(geography1));
 
         //symmetric
         Geography geography1Dup = new Geography(53.426826855643, -113.619431792539);
 
-        assertEquals(true, geography1.equals(geography1Dup));
-        assertEquals(true, geography1Dup.equals(geography1));
+        assertTrue(geography1.equals(geography1Dup));
+        assertTrue(geography1Dup.equals(geography1));
 
         //transitive
         Geography geography1Dup1 = new Geography(53.426826855643, -113.619431792539);
 
-        assertEquals(true, geography1.equals(geography1Dup));
-        assertEquals(true, geography1Dup.equals(geography1Dup1));
-        assertEquals(true, geography1.equals(geography1Dup1));
+        assertTrue(geography1.equals(geography1Dup));
+        assertTrue(geography1Dup.equals(geography1Dup1));
+        assertTrue(geography1.equals(geography1Dup1));
 
         //false results
         Geography geographyTest1 = new Geography(53.4193805147976,-113.440069344885 );
 
-        assertEquals(false, geographyTest1.equals(null));
-        assertEquals(false, geography1.equals(geography2));
-        assertEquals(false, geography2.equals(geographyTest1));
-        assertEquals(false, geographyTest1.equals(geography2));
+        assertFalse(geographyTest1.equals(null));
+        assertFalse(geography1.equals(geography2));
+        assertFalse(geography2.equals(geographyTest1));
+        assertFalse(geographyTest1.equals(geography2));
     }
 
     @Test
