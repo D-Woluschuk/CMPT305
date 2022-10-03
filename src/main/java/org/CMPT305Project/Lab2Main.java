@@ -34,7 +34,7 @@ public class Lab2Main {
      *
      * @param fileContents
      */
-    public static void allAssessmentsInfo(List<Record> fileContents){
+    private static void allAssessmentsInfo(List<Record> fileContents){
 
         System.out.println("Descriptive statistics of all property assessments");
 
@@ -55,7 +55,7 @@ public class Lab2Main {
      *
      * @param fileContents
      */
-    public static void accountStatistics(List<Record> fileContents){
+    private static void accountStatistics(List<Record> fileContents){
         String input;
         System.out.print("\nFind a property assessment by account number: ");
         input = UserInput.getUserInput();
@@ -73,7 +73,7 @@ public class Lab2Main {
      *
      * @param fileContents
      */
-    public static void neighStatistics(List<Record> fileContents){
+    private static void neighStatistics(List<Record> fileContents){
         System.out.print("\nNeighbourhood: ");
         String input = UserInput.getUserInput();
         List<Record> neighSearch = NeighbourhoodSearch.neighbourhoodSearch(input, fileContents);
@@ -93,7 +93,7 @@ public class Lab2Main {
 
         }
         else {
-            System.out.println("Data not found");
+            System.out.println("Data not found.");
         }
     }
 

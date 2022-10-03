@@ -5,14 +5,16 @@ import java.text.NumberFormat;
 import java.util.Locale;
 
 /**
- *
+ * This class converts various strings into their respective values needed by other classes within
+ * the package to build the list of property assessment records. It is also used to convert user inputted
+ * values, so they can be compared against Record objects.
  */
 public class Conversions {
 
     /**
-     *
-     * @param accountNumber
-     * @return
+     * Converts a string that represents an account number into an integer, so it can be stored as an integer
+     * @param accountNumber: A string that represents an account number
+     * @return accNum: The converted string that represents an account number.
      */
     public static int convertAccNum(String accountNumber) {
         int accNum;

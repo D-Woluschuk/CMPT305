@@ -14,6 +14,7 @@ public class UserInput {
         String userInput;
 
         userInput = input.nextLine();
+
         return userInput;
     }
 
@@ -24,6 +25,7 @@ public class UserInput {
      */
     static String getFileName(){
         System.out.print("CSV filename: ");
+
         return getUserInput();
     }
 

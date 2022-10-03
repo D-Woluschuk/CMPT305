@@ -10,22 +10,32 @@ public class Lab3Main {
 
     /**
      *
-     * @param args
-     * @throws IOException
+     * @param args: Command line arguments
+     * @throws IOException: If there is an issue finding, opening, or reading the file
+     *                      specified by the user.
      */
     public static void main(String[] args) throws IOException {
-        System.out.print("Assessment Class: ");
-        String input = UserInput.getUserInput();
-        System.out.println("Statistics (assessment class = " + input + ")");
 
         String filePath = UserInput.getFileName();
         boolean fileCheck = CSV.checkFile(filePath);
 
+        System.out.print("Assessment Class: ");
+        String input = UserInput.getUserInput();
+        System.out.println("Statistics (assessment class = " + input + ")");
+
         if (fileCheck){
             List<Record> fileContents = CSV.readCSV(filePath);
             List<Record> searchResults = AssessmentSearch.searchByAssessment(input, fileContents);
+            assessmentClassInfo(searchResults);
+        }
+        else {
+            System.out.println("Could not find the file!\n Please try again!");
+        }
+    }
 
-            System.out.println(Statistics.getNumberOfEntries(searchResults));
+    private static void assessmentClassInfo(List<Record> searchResults){
+        if (searchResults.size() != 0) {
+            System.out.println("Count = " + Statistics.getNumberOfEntries(searchResults));
 
             System.out.println("Min = " + Conversions.convertToDollarValue(Statistics.lowestAssessedValue(searchResults)));
 
@@ -37,8 +47,8 @@ public class Lab3Main {
 
             System.out.println("Median = " + Conversions.convertToDollarValue(Statistics.assessedValueMedian(searchResults)));
         }
-        else {
-            System.out.println("Could not find the file!\n Please try again!");
+        else{
+            System.out.println("Data not found.");
         }
     }
 }
