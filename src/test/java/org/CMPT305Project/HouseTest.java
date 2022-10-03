@@ -47,25 +47,25 @@ class HouseTest {
     @Test
     void testEquals() {
         //Reflexive
-        assertEquals(true, houseTest1.equals(houseTest1));
+        assertTrue(houseTest1.equals(houseTest1));
 
         //Symmetric
         House houseTest3 = new House("1945", "10623", "106St NW", "N");
-        assertEquals(true, houseTest1.equals(houseTest3));
-        assertEquals(true, houseTest3.equals(houseTest1));
+        assertTrue(houseTest1.equals(houseTest3));
+        assertTrue(houseTest3.equals(houseTest1));
 
         //Transitive
         House houseTest4 = new House("1945", "10623", "106St NW", "N");
-        assertEquals(true, houseTest3.equals(houseTest4));
-        assertEquals(true, houseTest1.equals(houseTest4));
+        assertTrue(houseTest3.equals(houseTest4));
+        assertTrue(houseTest1.equals(houseTest4));
 
         //False Results
-        assertEquals(false, houseTest1.equals(null));
-        assertEquals(false, houseTest2.equals(null));
-        assertEquals(false, houseTest1.equals(houseTest2));
-        assertEquals(false, houseTest2.equals(houseTest4));
+        assertFalse(houseTest1.equals(null));
+        assertFalse(houseTest2.equals(null));
+        assertFalse(houseTest1.equals(houseTest2));
+        assertFalse(houseTest2.equals(houseTest4));
         House houseTest5 = new House("", "15712", "106St NW", "Y");
-        assertEquals(false, houseTest5.equals(houseTest1));
+        assertFalse(houseTest5.equals(houseTest1));
     }
 
     @Test
@@ -74,7 +74,7 @@ class HouseTest {
 
         String expected = "1945-10623 106St NW";
 
-        assertEquals(true, house1.equals(expected));
+        assertTrue(house1.equals(expected));
 
 
     }
@@ -88,7 +88,7 @@ class HouseTest {
         String garageStatus = houseTest1.getGarageStatus();
 
         int expected = Objects.hash(suiteNum, houseNum, streetName, garageStatus);
-        assertEquals(true, expected == houseTest1.hashCode());
+        assertTrue(expected == houseTest1.hashCode());
 
         String suiteNum2 = houseTest2.getSuiteNumber();
         String houseNum2 = houseTest2.getHouseNumber();
@@ -96,7 +96,7 @@ class HouseTest {
         String garageStatus2 = houseTest2.getGarageStatus();
 
         int expected2 = Objects.hash(suiteNum2, houseNum2, streetName2, garageStatus2);
-        assertEquals(false, expected2 == houseTest1.hashCode());
+        assertFalse(expected2 == houseTest1.hashCode());
 
     }
 }

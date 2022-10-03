@@ -4,8 +4,16 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ *
+ */
 public class Statistics {
 
+    /**
+     *
+     * @param fileContents
+     * @return
+     */
     public static int getNumberOfEntries(List<Record> fileContents){
         int entryCount;
 
@@ -15,6 +23,11 @@ public class Statistics {
     }
 
 
+    /**
+     *
+     * @param data
+     * @return
+     */
     public static double highestAssessedValue(List<Record> data){
 
         Record firstLine = data.get(0);
@@ -32,6 +45,11 @@ public class Statistics {
         return maxValue;
     }
 
+    /**
+     *
+     * @param data
+     * @return
+     */
     public static double lowestAssessedValue(List<Record> data){
 
 
@@ -47,6 +65,11 @@ public class Statistics {
 
     }
 
+    /**
+     *
+     * @param data
+     * @return
+     */
     public static double assessedValueRange(List<Record> data){
 
         double highestValue = highestAssessedValue(data);
@@ -55,6 +78,11 @@ public class Statistics {
         return highestValue - lowestValue;
     }
 
+    /**
+     *
+     * @param recordsList
+     * @return
+     */
     public static double assessedValueMean(List<Record> recordsList){
         int size = recordsList.size();
         double assessedSum = 0;
@@ -66,6 +94,11 @@ public class Statistics {
         return assessedSum / size;
     }
 
+    /**
+     *
+     * @param recordsList
+     * @return
+     */
     public static double assessedValueMedian(List<Record> recordsList){
         List <Double> valueList = new ArrayList<>();
 
@@ -89,10 +122,4 @@ public class Statistics {
 
         return median;
     }
-
-
-
-
-
-
 }

@@ -3,20 +3,32 @@ package org.CMPT305Project;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ *
+ */
 public class Record implements Comparable<Record> {
 
-    private int accountID;
+    private final int accountID;
 
-    private House aHouse;
-    private Ward aWard;
+    private final House aHouse;
+    private final Ward aWard;
 
-    private Geography geography;
+    private final Geography geography;
 
-    private List<Assessment> assessmentClass;
+    private final List<Assessment> assessmentClass;
 
-    private double assessmentValue;
+    private final double assessmentValue;
 
 
+    /**
+     *
+     * @param accID
+     * @param aHouse
+     * @param aWard
+     * @param assessmentValue
+     * @param geography
+     * @param assessmentClass
+     */
     public Record(int accID, House aHouse, Ward aWard, double assessmentValue, Geography geography, List<Assessment> assessmentClass) {
 
 
@@ -30,38 +42,60 @@ public class Record implements Comparable<Record> {
 
     }
 
-
+    /**
+     *
+     * @return
+     */
     public int getAccountID() {
         return this.accountID;
     }
 
-    public static int convertAccNum(String accountNumber) {
-        int accNum;
-        accNum = Integer.parseInt(accountNumber);
-        return accNum;
-    }
-
+    /**
+     *
+     * @return
+     */
     public double getAssessedValue() {
         return this.assessmentValue;
     }
 
+    /**
+     *
+     * @return
+     */
     public Neighbourhood getNeighbourhood(){
         return this.aWard.getaNeighbourhood();
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Assessment> getAssessment(){
         return this.assessmentClass;
     }
 
+    /**
+     *
+     * @return
+     */
     public House getaHouse() {
         return this.aHouse;
     }
 
+    /**
+     *
+     * @param other the object to be compared.
+     * @return
+     */
     @Override
     public int compareTo(Record other) {
         return Double.compare(this.assessmentValue, other.assessmentValue);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return  "\nAccount Number = " + this.accountID +
@@ -72,6 +106,11 @@ public class Record implements Comparable<Record> {
                 "\nLocation = " + geography;
     }
 
+    /**
+     *
+     * @param obj
+     * @return
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -84,6 +123,10 @@ public class Record implements Comparable<Record> {
         return (this.accountID == record.accountID);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int hashCode() {
         return Objects.hash(accountID);

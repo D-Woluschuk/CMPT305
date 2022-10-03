@@ -3,9 +3,17 @@ package org.CMPT305Project;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ */
 public class NeighbourhoodSearch {
 
-
+    /**
+     *
+     * @param aNeighbourhood
+     * @param recordList
+     * @return
+     */
     public static List<Record> neighbourhoodSearch(String aNeighbourhood, List<Record> recordList){
 
         List<Record> neighRecords = new ArrayList<>();
