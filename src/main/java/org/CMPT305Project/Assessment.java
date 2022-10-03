@@ -6,9 +6,9 @@ import java.util.Objects;
  *
  */
 public class Assessment {
-    private final double assessmentPercent;
+    private double assessmentPercent;
 
-    private final String assessmentClass;
+    private String assessmentClass;
 
     /**
      *

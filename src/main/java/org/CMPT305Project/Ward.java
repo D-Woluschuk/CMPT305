@@ -6,8 +6,8 @@ import java.util.Objects;
  *
  */
 public class Ward {
-    private final String wardName;
-    private final Neighbourhood aNeighbourhood;
+    private String wardName;
+    private Neighbourhood aNeighbourhood;
 
     /**
      *
