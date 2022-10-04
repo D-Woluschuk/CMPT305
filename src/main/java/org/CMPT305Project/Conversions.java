@@ -38,10 +38,13 @@ public class Conversions {
     public static double convertAssessedValue(String value) {
         double assessedValue;
 
+        //To avoid potential errors where e might be interpreted as exponent during the conversion.
         if (value.contains("e") || value.contains("E")){
             assessedValue = 0;
             return assessedValue;
         }
+
+
         try {
 
             assessedValue = Double.parseDouble(value);
@@ -52,9 +55,9 @@ public class Conversions {
     }
 
     /**
-     *
-     * @param aLatitude
-     * @return
+     * Converts a string that represents the Latitude of a property assessment into a double.
+     * @param aLatitude: A string representation of a latitude value.
+     * @return latitude: The latitude of a property assessment converted to a double.
      */
     public static double convertLatitude(String aLatitude) {
         double latitude;
@@ -72,9 +75,9 @@ public class Conversions {
     }
 
     /**
-     *
-     * @param aLongitude
-     * @return
+     * Converts a string that represents the Longitude of a property assessment into a double.
+     * @param aLongitude: A string representation of a longitude value.
+     * @return longitude: The longitude of a property assessment converted to a double.
      */
     public static double convertLongitude(String aLongitude) {
         double longitude;
@@ -92,9 +95,10 @@ public class Conversions {
     }
 
     /**
-     *
-     * @param amount
-     * @return
+     * Converts a double value into a dollar value as a string.
+     * Example: 1234.00 becomes "$1,234.00"
+     * @param amount: The value that is to be converted to a dollar value.
+     * @return convertedValue: The string that is constructed when converting the double to a dollar value.
      */
     public static String convertToDollarValue(double amount){
 
@@ -112,9 +116,9 @@ public class Conversions {
     }
 
     /**
-     *
-     * @param anId
-     * @return
+     * Converts a string that represents a neighbourhood id into an integer.
+     * @param anId: The string that represents a neighbourhood ID.
+     * @return convertedValue: An integer that represents anId parameter as an integer.
      */
     public static int convertNeighbourhoodId(String anId){
         int convertedValue;

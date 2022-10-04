@@ -62,7 +62,7 @@ public class Ward {
      *         Ward obj are equal.
      *         False: If the obj parameter is not an instance of the Ward class.
      *         False: If either the wardName or neighbourhood fields of the current Ward object and the typecast to
-     *      *         Ward obj are not equal.
+     *                Ward obj are not equal.
      */
     @Override
     public boolean equals(Object obj) {
