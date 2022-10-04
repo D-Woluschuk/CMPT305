@@ -52,7 +52,7 @@ public class Assessment {
      * Determines if two Assessment objects are equal.
      * @param obj: The other object that is to be compared against to determine if two Assessment
      *           objects are equal.
-     * @return: True: If the two Assessment objects point to the same memory location.
+     * @return True: If the two Assessment objects point to the same memory location.
      *          True: If the assessmentClass and assessmentPercent fields of the two
      *          Assessment objects have the same value.
      *          False: If the obj parameter is not an Assessment object.

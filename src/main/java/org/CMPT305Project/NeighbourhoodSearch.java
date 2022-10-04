@@ -13,7 +13,8 @@ public class NeighbourhoodSearch {
      * Finds all Record objects where each Record has the same neighbourhood name as a user inputted value.
      * @param aNeighbourhood: The user inputted neighbourhood name to be searched for.
      * @param recordList: The list of all Record objects collected from reading the csv file.
-     * @return
+     * @return A list of Record objects where each element contains the same neighbourhood name as the
+     *         user inputted value.
      */
     public static List<Record> neighbourhoodSearch(String aNeighbourhood, List<Record> recordList){
 

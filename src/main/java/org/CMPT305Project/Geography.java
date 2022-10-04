@@ -24,7 +24,7 @@ public class Geography {
 
     /**
      * An accessor method to return the latitude value of a geography object.
-     * @returnA Double that represents the latitude value.
+     * @return A Double that represents the latitude value.
      */
     public double getLatitude() {
         return this.latitude;
