@@ -30,9 +30,10 @@ public class Conversions {
 
 
     /**
-     *
-     * @param value
-     * @return
+     * Converts a string that represents a property assessment value into a double, so it can be stored as a double
+     * in a Record object.
+     * @param value: A string that represents a property assessment value.
+     * @return assessedValue: The converted string that represents a property assessment value.
      */
     public static double convertAssessedValue(String value) {
         double assessedValue;

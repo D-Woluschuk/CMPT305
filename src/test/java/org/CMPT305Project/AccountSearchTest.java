@@ -10,21 +10,38 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AccountSearchTest {
     List<Record> recordList;
+    List<Record> emptyList;
     @BeforeEach
     void setUp() throws IOException {
-        recordList = CSV.readCSV("Property_Assessment_Data_2022.csv");
+        recordList = CSV.readCSV("Test_With_Entries.csv");
+        emptyList = CSV.readCSV("Test_Without_Entries.csv");
     }
 
     @Test
     void accountSearch() {
-        Record result1 = AccountSearch.accountSearch("1103530", recordList);
+
+        //Testing with a csv file that has some entries
+
+        Record result1 = AccountSearch.accountSearch("4220364", recordList);
         assert result1 != null;
-        assertTrue(result1.getAccountID() == 1103530);
+        assertEquals(4220364, result1.getAccountID());
 
         Record result2 = AccountSearch.accountSearch("1234567890", recordList);
         assertNull(result2);
 
         Record result3 = AccountSearch.accountSearch("abc", recordList);
+        assertNull(result3);
+
+
+        //Testing with an empty csv file
+
+        result1 = AccountSearch.accountSearch("4220364", emptyList);
+        assertNull(result1);
+
+        result2 = AccountSearch.accountSearch("1234567890", emptyList);
+        assertNull(result2);
+
+        result3 = AccountSearch.accountSearch("abc", emptyList);
         assertNull(result3);
 
     }
