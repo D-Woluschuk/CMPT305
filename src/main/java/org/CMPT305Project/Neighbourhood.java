@@ -7,8 +7,8 @@ import java.util.Objects;
  * property assessment entry from a csv file.
  */
 public class Neighbourhood {
-    private final int neighbourhoodId;
-    private final String neighbourhoodName;
+    private int neighbourhoodId;
+    private String neighbourhoodName;
 
     /**
      * The constructor for a Neighbourhood object.
