@@ -29,9 +29,6 @@ public class NeighbourhoodSearch {
 
             }
         }
-        if (neighRecords.size() == 0){
-            return null;
-        }
         return neighRecords;
     }
 

@@ -6,7 +6,7 @@ import java.util.Scanner;
 /**
  * This class is a helper class to the client program to assist in gathering user input from the terminal
  */
-public class UserInput {
+class UserInput {
 
 
     /**

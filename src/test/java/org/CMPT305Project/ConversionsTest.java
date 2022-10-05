@@ -75,6 +75,7 @@ class ConversionsTest {
         String value4 = "531921812";
         String value5 = "";
         String value6 = "a";
+        String value7 = ".";
 
 
         assertTrue(Conversions.convertLatitude(value1) == 53.28372438334);
@@ -93,6 +94,8 @@ class ConversionsTest {
         result = Conversions.convertLatitude(value6);
         assertEquals(0, result);
 
+        result = Conversions.convertLatitude(value7);
+        assertEquals(0, result);
     }
 
     @Test
@@ -104,6 +107,7 @@ class ConversionsTest {
         String value4 = "-113856473";
         String value5 = "";
         String value6 = "b";
+        String value7 = ".";
 
 
         assertTrue(Conversions.convertLongitude(value1) == -113.28372438334);
@@ -122,6 +126,8 @@ class ConversionsTest {
         result = Conversions.convertLongitude(value6);
         assertEquals(0, result);
 
+        result = Conversions.convertLongitude(value7);
+        assertEquals(0, result);
     }
 
     @Test

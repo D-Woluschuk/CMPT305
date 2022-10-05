@@ -72,9 +72,9 @@ class HouseTest {
     void testToString(){
         String house1 = houseTest1.toString();
 
-        String expected = "1945-10623 106St NW";
+        String expected = "1945-10623 106St NW N";
 
-        assertTrue(house1.equals(expected));
+        assertEquals(expected, house1);
 
 
     }

@@ -88,7 +88,7 @@ public class Lab2Main {
         String input = UserInput.getUserInput();
         List<Record> neighSearch = NeighbourhoodSearch.neighbourhoodSearch(input, fileContents);
 
-        if (neighSearch != null){
+        if (neighSearch.size() != 0){
 
             System.out.println("Count = " + neighSearch.size());
 

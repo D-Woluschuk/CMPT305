@@ -1,5 +1,6 @@
 package org.CMPT305Project;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -30,6 +31,9 @@ public class Statistics {
      */
     public static double highestAssessedValue(List<Record> data){
 
+        if (data.size() == 0){
+            return 0;
+        }
         Record firstLine = data.get(0);
         double maxValue = firstLine.getAssessedValue();
 
@@ -51,6 +55,9 @@ public class Statistics {
      */
     public static double lowestAssessedValue(List<Record> data){
 
+        if (data.size() == 0){
+            return 0;
+        }
         Record firstLine = data.get(0);
         double minValue = firstLine.getAssessedValue();
 
@@ -85,6 +92,10 @@ public class Statistics {
      */
     public static double assessedValueMean(List<Record> recordsList){
         int size = recordsList.size();
+
+        if (size == 0){
+            return 0;
+        }
         double assessedSum = 0;
 
         //This loop sums each records property assessment values.
@@ -92,7 +103,11 @@ public class Statistics {
             assessedSum += (record.getAssessedValue());
         }
 
-        return assessedSum / size;
+        DecimalFormat decimalFormat = new DecimalFormat("0.00");
+        double result = assessedSum / size;
+        result = Double.parseDouble(decimalFormat.format(result));
+
+        return result;
     }
 
     /**
@@ -103,7 +118,9 @@ public class Statistics {
      */
     public static double assessedValueMedian(List<Record> recordsList){
         List <Double> valueList = new ArrayList<>();
-
+        if (recordsList.size() == 0){
+            return 0;
+        }
         //Creating a list of assessment values.
         for (Record record: recordsList) {
             valueList.add(record.getAssessedValue());
@@ -126,7 +143,7 @@ public class Statistics {
         else {
             median = valueList.get(size/2);
         }
-
-        return median;
+        DecimalFormat decimalFormat = new DecimalFormat("0.00");
+        return Double.parseDouble(decimalFormat.format(median));
     }
 }

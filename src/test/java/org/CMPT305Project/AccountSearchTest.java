@@ -48,18 +48,19 @@ class AccountSearchTest {
 
     @Test
     void accountInputCheck() {
+
+        //Valid account numbers
         String accNum1 = "1234567";
-        String accNum2 = "123456789O";
         String accNum3 = "1234567890";
+        assertTrue(AccountSearch.accountInputCheck(accNum1));
+        assertTrue(AccountSearch.accountInputCheck(accNum3));
+
+        //Not valid account numbers
+        String accNum2 = "123456789O";
         String accNum4 = "abcdefghijk";
         String accNum5 = "ABCDEFG123";
         String accNum6 = "12EA56789";
         String accNum7 = "";
-
-        assertTrue(AccountSearch.accountInputCheck(accNum1));
-        assertTrue(AccountSearch.accountInputCheck(accNum3));
-
-
         assertFalse(AccountSearch.accountInputCheck(accNum2));
         assertFalse(AccountSearch.accountInputCheck(accNum4));
         assertFalse(AccountSearch.accountInputCheck(accNum5));
