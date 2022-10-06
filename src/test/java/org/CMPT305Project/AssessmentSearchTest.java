@@ -36,7 +36,7 @@ class AssessmentSearchTest {
         assertEquals(0, resultsList.size());
 
         resultsList = AssessmentSearch.searchByAssessment(searchTerm2, recordList);
-        assertEquals(33, resultsList.size());
+        assertEquals(34, resultsList.size());
 
         resultsList = AssessmentSearch.searchByAssessment(searchTerm3, recordList);
         assertEquals(0, resultsList.size());
