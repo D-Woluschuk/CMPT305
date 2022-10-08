@@ -17,7 +17,10 @@ public class Statistics {
      */
     public static int getNumberOfEntries(List<Record> fileContents){
         int entryCount;
-
+        if (fileContents == null){
+            System.err.println("An error has occurred. Exiting");
+            System.exit(1);
+        }
         entryCount = fileContents.size();
 
         return entryCount;
@@ -117,8 +120,10 @@ public class Statistics {
      * @return median: The median property assessment value from a list of ordered Record objects.
      */
     public static double assessedValueMedian(List<Record> recordsList){
+
+
         List <Double> valueList = new ArrayList<>();
-        if (recordsList.size() == 0){
+        if ((recordsList == null) || (recordsList.size() == 0)){
             return 0;
         }
         //Creating a list of assessment values.

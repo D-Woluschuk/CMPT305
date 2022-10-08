@@ -40,13 +40,22 @@ public class CSV {
 
         BufferedReader input = Files.newBufferedReader(Paths.get(pathToFile));
 
-        //To remove header
-        input.readLine();
+        try {
+            //To remove header
+            input.readLine();
+        } catch (IOException ioException){
+            System.err.println("An issue reading the file has occurred.");
+            System.exit(1);
+        }
 
         List<Record> recordList = new ArrayList<>();
 
         while ((line = input.readLine()) != null) {
             String[] splitLine = line.split(",");
+
+            if (splitLine.length == 1){
+                return recordList;
+            }
 
             //Account Number
             int accNum = Conversions.convertAccNum(splitLine[0]);

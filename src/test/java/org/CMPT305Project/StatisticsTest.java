@@ -13,6 +13,8 @@ class StatisticsTest {
     List<Record> emptyList;
     List<Record> fullList;
 
+    List<Record> aList;
+
     @BeforeEach
     void setUp() throws IOException {
         recordList = CSV.readCSV("Test_With_Entries.csv");
@@ -36,6 +38,7 @@ class StatisticsTest {
         expected = 4437;
         result = Statistics.getNumberOfEntries(fullList);
         assertEquals(expected, result);
+
     }
 
     @Test

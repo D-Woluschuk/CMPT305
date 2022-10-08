@@ -18,6 +18,10 @@ public class NeighbourhoodSearch {
      */
     public static List<Record> neighbourhoodSearch(String aNeighbourhood, List<Record> recordList){
 
+        if ((aNeighbourhood == null) || (recordList == null)){
+            System.err.println("An error occurred.\nExiting..");
+            System.exit(1);
+        }
         List<Record> neighRecords = new ArrayList<>();
 
         //This loop finds a neighbourhood name from each record and compares it to the user inputted name.

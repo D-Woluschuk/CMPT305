@@ -62,11 +62,14 @@ public class Conversions {
     public static double convertLatitude(String aLatitude) {
         double latitude;
 
-        if (!(aLatitude.contains("."))){
-            latitude = 0;
-            return latitude;
-        }
+
         try {
+
+            if (!(aLatitude.contains("."))){
+                latitude = 0;
+                return latitude;
+            }
+
             latitude = Double.parseDouble(aLatitude);
         } catch (NullPointerException | NumberFormatException exception) {
             latitude = 0;
@@ -82,11 +85,11 @@ public class Conversions {
     public static double convertLongitude(String aLongitude) {
         double longitude;
 
-        if (!(aLongitude.contains("."))){
-            longitude = 0;
-            return longitude;
-        }
         try {
+            if (!(aLongitude.contains("."))){
+                longitude = 0;
+                return longitude;
+            }
             longitude = Double.parseDouble(aLongitude);
         } catch (NullPointerException | NumberFormatException exception) {
             longitude = 0;
