@@ -45,17 +45,7 @@ public class Lab2Main {
 
         System.out.println("Descriptive statistics of all property assessments");
 
-        System.out.println("Count = " + Statistics.getNumberOfEntries(fileContents));
-
-        System.out.println("Min = " + Conversions.convertToDollarValue(Statistics.lowestAssessedValue(fileContents)));
-
-        System.out.println("Max = " + Conversions.convertToDollarValue(Statistics.highestAssessedValue(fileContents)));
-
-        System.out.println("Range = " + Conversions.convertToDollarValue(Statistics.assessedValueRange(fileContents)));
-
-        System.out.println("Mean = " + Conversions.convertToDollarValue(Statistics.assessedValueMean(fileContents)));
-
-        System.out.println("Median = " + Conversions.convertToDollarValue(Statistics.assessedValueMedian(fileContents)));
+        displayStatistics(fileContents);
     }
 
     /**
@@ -89,23 +79,29 @@ public class Lab2Main {
         List<Record> neighSearch = NeighbourhoodSearch.neighbourhoodSearch(input, fileContents);
 
         if (neighSearch.size() != 0){
-
-            System.out.println("Count = " + neighSearch.size());
-
-            System.out.println("Min = " + Conversions.convertToDollarValue(Statistics.lowestAssessedValue(neighSearch)));
-
-            System.out.println("Max = " + Conversions.convertToDollarValue(Statistics.highestAssessedValue(neighSearch)));
-
-            System.out.println("Range = " + Conversions.convertToDollarValue(Statistics.assessedValueRange(neighSearch)));
-
-            System.out.println("Mean = " + Conversions.convertToDollarValue(Statistics.assessedValueMean(neighSearch)));
-
-            System.out.println("Median = " + Conversions.convertToDollarValue(Statistics.assessedValueMedian(neighSearch)));
+            displayStatistics(neighSearch);
 
         }
         else {
             System.out.println("Data not found.");
         }
+    }
+
+
+    private static void displayStatistics(List<Record> fileContents){
+
+        System.out.println("Count = " + fileContents.size());
+
+        System.out.println("Min = " + Conversions.convertToDollarValue(Statistics.lowestAssessedValue(fileContents)));
+
+        System.out.println("Max = " + Conversions.convertToDollarValue(Statistics.highestAssessedValue(fileContents)));
+
+        System.out.println("Range = " + Conversions.convertToDollarValue(Statistics.assessedValueRange(fileContents)));
+
+        System.out.println("Mean = " + Conversions.convertToDollarValue(Statistics.assessedValueMean(fileContents)));
+
+        System.out.println("Median = " + Conversions.convertToDollarValue(Statistics.assessedValueMedian(fileContents)));
+
     }
 
 

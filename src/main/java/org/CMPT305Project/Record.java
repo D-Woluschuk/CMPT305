@@ -68,7 +68,7 @@ public class Record implements Comparable<Record> {
      * @return The neighbourhood object from the Ward object.
      */
     public Neighbourhood getNeighbourhood(){
-        return this.aWard.getaNeighbourhood();
+        return this.aWard.getNeighbourhood();
     }
 
 

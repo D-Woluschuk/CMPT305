@@ -3,8 +3,6 @@ package org.CMPT305Project;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Objects;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class WardTest {
@@ -32,7 +30,7 @@ class WardTest {
     @Test
     void getaNeighbourhood() {
         Neighbourhood expected = new Neighbourhood(2500, "Matt Berry");
-        assertEquals(expected, wardTest1.getaNeighbourhood());
+        assertEquals(expected, wardTest1.getNeighbourhood());
     }
 
     @Test
@@ -68,13 +66,4 @@ class WardTest {
         assertFalse(wardTest1.equals(null));
     }
 
-    @Test
-    void testHashCode() {
-        String wardName1 = wardTest1.getWardName();
-        Neighbourhood neigh1 = wardTest1.getaNeighbourhood();
-
-        int expected = Objects.hash(wardName1, neigh1);
-
-        assertEquals(expected, wardTest1.hashCode());
-    }
 }

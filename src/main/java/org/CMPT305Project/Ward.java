@@ -35,7 +35,7 @@ public class Ward {
      * An accessor method that retrieves the Neighbourhood object for a Ward object.
      * @return aNeighbourhood: The neighbourhood object that consists of a neighbourhood name, and neighbourhood id.
      */
-    public Neighbourhood getaNeighbourhood(){
+    public Neighbourhood getNeighbourhood(){
         return this.aNeighbourhood;
     }
 
@@ -72,7 +72,7 @@ public class Ward {
         if (!(obj instanceof Ward ward))
             return false;
 
-        return ward.wardName.equals(this.wardName) && ward.aNeighbourhood.equals(this.aNeighbourhood);
+        return (ward.wardName.equals(this.wardName)) && (ward.aNeighbourhood.equals(this.aNeighbourhood));
     }
 
 
