@@ -14,11 +14,14 @@ class AssessmentSearchTest {
     List<Record> emptyList;
     List<Record> assessmentsList;
 
+    List<Record> problemList;
+
     @BeforeEach
     void setUp() throws IOException {
         recordList = CSV.readCSV("Test_With_Entries.csv");
         emptyList = CSV.readCSV("Test_Without_Entries.csv");
         assessmentsList = CSV.readCSV("AssessmentSearchTest.csv");
+        problemList = CSV.readCSV("Problem_File.csv");
     }
 
 
@@ -73,5 +76,17 @@ class AssessmentSearchTest {
         assertEquals(0, resultsList.size());
 
 
+        //Searching for an assessment when the file has problems
+        resultsList = AssessmentSearch.searchByAssessment(searchTerm1, problemList);
+        assertEquals(0, resultsList.size());
+
+        resultsList = AssessmentSearch.searchByAssessment(searchTerm2, problemList);
+        assertEquals(0, resultsList.size());
+
+        resultsList = AssessmentSearch.searchByAssessment(searchTerm3, problemList);
+        assertEquals(0, resultsList.size());
+
+        resultsList = AssessmentSearch.searchByAssessment(searchTerm4, problemList);
+        assertEquals(0, resultsList.size());
     }
 }

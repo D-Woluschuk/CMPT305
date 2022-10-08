@@ -13,13 +13,14 @@ class StatisticsTest {
     List<Record> emptyList;
     List<Record> fullList;
 
-    List<Record> aList;
+    List<Record> problemList;
 
     @BeforeEach
     void setUp() throws IOException {
         recordList = CSV.readCSV("Test_With_Entries.csv");
         emptyList = CSV.readCSV("Test_Without_Entries.csv");
         fullList = CSV.readCSV("Lots_of_Entries.csv");
+        problemList = CSV.readCSV("Problem_File.csv");
     }
 
     @Test
@@ -37,6 +38,10 @@ class StatisticsTest {
 
         expected = 4437;
         result = Statistics.getNumberOfEntries(fullList);
+        assertEquals(expected, result);
+
+        expected = 0;
+        result = Statistics.getNumberOfEntries(problemList);
         assertEquals(expected, result);
 
     }
@@ -57,6 +62,10 @@ class StatisticsTest {
         expected = 0;
         result = Statistics.highestAssessedValue(emptyList);
         assertEquals(expected, result);
+
+        expected = 0;
+        result = Statistics.highestAssessedValue(problemList);
+        assertEquals(expected, result);
     }
 
     @Test
@@ -74,6 +83,10 @@ class StatisticsTest {
 
         expected = 0;
         result = Statistics.lowestAssessedValue(emptyList);
+        assertEquals(expected, result);
+
+        expected = 0;
+        result = Statistics.lowestAssessedValue(problemList);
         assertEquals(expected, result);
 
     }
@@ -94,6 +107,10 @@ class StatisticsTest {
         expected = 0;
         result = Statistics.assessedValueRange(emptyList);
         assertEquals(expected, result);
+
+        expected = 0;
+        result = Statistics.assessedValueRange(problemList);
+        assertEquals(expected, result);
     }
 
     @Test
@@ -112,6 +129,10 @@ class StatisticsTest {
         expected = 0;
         result = Statistics.assessedValueMean(emptyList);
         assertEquals(expected, result);
+
+        expected = 0;
+        result = Statistics.assessedValueMean(problemList);
+        assertEquals(expected, result);
     }
 
     @Test
@@ -129,6 +150,10 @@ class StatisticsTest {
 
         expected = 0;
         result = Statistics.assessedValueMedian(emptyList);
+        assertEquals(expected, result);
+
+        expected = 0;
+        result = Statistics.assessedValueMedian(problemList);
         assertEquals(expected, result);
 
     }

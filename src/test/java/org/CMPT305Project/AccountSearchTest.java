@@ -11,38 +11,67 @@ import static org.junit.jupiter.api.Assertions.*;
 class AccountSearchTest {
     List<Record> recordList;
     List<Record> emptyList;
+
+    List<Record> problemList;
+
     @BeforeEach
     void setUp() throws IOException {
         recordList = CSV.readCSV("Test_With_Entries.csv");
         emptyList = CSV.readCSV("Test_Without_Entries.csv");
+        problemList = CSV.readCSV("Problem_File.csv");
     }
 
     @Test
     void accountSearch() {
+        String accNum1 = "4220364";
+        String accNum2 = "1234567890";
+        String accNum3 = "abc";
+        String accNum4 = "";
+        Record result;
+
 
         //Testing with a csv file that has some entries
+        result = AccountSearch.accountSearch(accNum1, recordList);
+        assert result != null;
+        int expected = Conversions.convertAccNum(accNum1);
+        assertEquals(expected, result.getAccountID());
 
-        Record result1 = AccountSearch.accountSearch("4220364", recordList);
-        assert result1 != null;
-        assertEquals(4220364, result1.getAccountID());
+        result = AccountSearch.accountSearch(accNum2, recordList);
+        assertNull(result);
 
-        Record result2 = AccountSearch.accountSearch("1234567890", recordList);
-        assertNull(result2);
+        result = AccountSearch.accountSearch(accNum3, recordList);
+        assertNull(result);
 
-        Record result3 = AccountSearch.accountSearch("abc", recordList);
-        assertNull(result3);
+        result = AccountSearch.accountSearch(accNum4, recordList);
+        assertNull(result);
 
 
         //Testing with an empty csv file
+        result = AccountSearch.accountSearch(accNum1, emptyList);
+        assertNull(result);
 
-        result1 = AccountSearch.accountSearch("4220364", emptyList);
-        assertNull(result1);
+        result = AccountSearch.accountSearch(accNum2, emptyList);
+        assertNull(result);
 
-        result2 = AccountSearch.accountSearch("1234567890", emptyList);
-        assertNull(result2);
+        result = AccountSearch.accountSearch(accNum3, emptyList);
+        assertNull(result);
 
-        result3 = AccountSearch.accountSearch("abc", emptyList);
-        assertNull(result3);
+        result = AccountSearch.accountSearch(accNum4, recordList);
+        assertNull(result);
+
+
+        //Testing with a bad csv file
+        result = AccountSearch.accountSearch(accNum1, problemList);
+        assertNull(result);
+
+        result = AccountSearch.accountSearch(accNum2, problemList);
+        assertNull(result);
+
+        result = AccountSearch.accountSearch(accNum3, problemList);
+        assertNull(result);
+
+        result = AccountSearch.accountSearch(accNum4, problemList);
+        assertNull(result);
 
     }
 
