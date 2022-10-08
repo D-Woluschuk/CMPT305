@@ -3,6 +3,8 @@ package org.CMPT305Project;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Objects;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class WardTest {
@@ -30,15 +32,19 @@ class WardTest {
     @Test
     void getaNeighbourhood() {
         Neighbourhood expected = new Neighbourhood(2500, "Matt Berry");
-        assertTrue(expected.equals(neighTest1));
+        assertEquals(expected, wardTest1.getNeighbourhood());
     }
 
     @Test
     void testToString() {
+        String expected = "(Dene Ward), (2500) Matt Berry";
+
+        assertEquals(expected, wardTest1.toString());
     }
 
     @Test
     void testEquals() {
+
         //Reflexive
         assertTrue(wardTest1.equals(wardTest1));
 
@@ -56,13 +62,20 @@ class WardTest {
         assertTrue(wardTest1.equals(wardTest5));
 
         //False Values
-        assertFalse(wardTest3 == null);
+        assertFalse(wardTest3.equals(null));
         assertFalse(wardTest3.equals(wardTest2));
         assertFalse(wardTest1.equals(wardTest3));
-        assertFalse(wardTest1 == null);
+        assertFalse(wardTest1.equals(null));
     }
 
     @Test
-    void testHashCode() {
+    void testHashCode(){
+        Neighbourhood neighbourhood = wardTest1.getNeighbourhood();
+        String wardName = wardTest1.getWardName();
+
+        int expected = Objects.hash(wardName, neighbourhood);
+
+        assertEquals(expected, wardTest1.hashCode());
     }
+
 }
