@@ -53,7 +53,8 @@ public class CSV {
         while ((line = input.readLine()) != null) {
             String[] splitLine = line.split(",");
 
-            if (splitLine.length == 1){
+            //If the line is less than 12 entries long, we dont have all the data needed, so we will return with what we have
+            if (splitLine.length < 12){
                 return recordList;
             }
 

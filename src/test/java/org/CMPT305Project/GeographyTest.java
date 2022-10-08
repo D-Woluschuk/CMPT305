@@ -81,4 +81,10 @@ class GeographyTest {
         assertEquals(longTest1, geography3.getLongitude());
     }
 
+    @Test
+    void testRangeChecks(){
+        assertThrows(IllegalArgumentException.class, () ->  new Geography(-90, -180.00001));
+        assertThrows(IllegalArgumentException.class, () ->  new Geography(90.00000001, -180.000000000));
+    }
+
 }
