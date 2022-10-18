@@ -3,6 +3,7 @@ package org.CMPT305ProjectM2;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * This is the client program that utilizes other classes in the package to generate a list
@@ -32,8 +33,16 @@ public class Lab3Main {
         assessmentClassInfo(searchResults);*/
 
         PropertyAssessmentDAO dao = new ApiPropertyAssessmentDAO();
+        System.out.print("Enter acc num: ");
+        Scanner scanner = new Scanner(System.in);
+        int accNum = scanner.nextInt();
+        Record result = dao.getByAccountNumber(accNum);
+        System.out.println(result);
 
-        dao.getByAccountNumber(1);
+        System.out.println("Enter neighbourhood: ");
+        String neigh = scanner.nextLine();
+        List<Record> results = dao.getByNeighbourhood(neigh);
+
 
     }
 

@@ -11,4 +11,6 @@ public interface PropertyAssessmentDAO {
 
     List<Record> getAll();
 
+    List<Assessment> createAssessment(String [] aLine);
+
 }

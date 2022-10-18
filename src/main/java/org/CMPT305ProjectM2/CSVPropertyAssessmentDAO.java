@@ -193,7 +193,8 @@ public class CSVPropertyAssessmentDAO implements PropertyAssessmentDAO {
      * @param aLine: The remainder of a line read from the csv file.
      * @return assessmentClass: The new List of assessment objects that will be stored into a Record object.
      */
-    public static List<Assessment> createAssessment(String [] aLine){
+    @Override
+    public List<Assessment> createAssessment(String [] aLine){
         double percentage;
         String className;
         List<Assessment> assessmentClass = new ArrayList<>();

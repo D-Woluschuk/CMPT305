@@ -15,11 +15,19 @@ public class Lab2Main {
      */
     public static void main(String[] args) {
 
-        String filePath = UserInput.getFileName();
-        CSVPropertyAssessmentDAO csvDAO = new CSVPropertyAssessmentDAO(filePath);
-        allAssessmentsInfo(csvDAO);
-        accountStatistics(csvDAO);
-        neighStatistics(csvDAO);
+        //String filePath = UserInput.getFileName();
+        //PropertyAssessmentDAO csvDAO = new CSVPropertyAssessmentDAO(filePath);
+        //allAssessmentsInfo(csvDAO);
+        //accountStatistics(csvDAO);
+        //neighStatistics(csvDAO);
+        //assessmentStatistics(csvDAO);
+
+        PropertyAssessmentDAO apiDAO = new ApiPropertyAssessmentDAO();
+        //accountStatistics(apiDAO);
+        neighStatistics(apiDAO);
+        assessmentStatistics(apiDAO);
+
+
     }
 
 
@@ -69,6 +77,15 @@ public class Lab2Main {
         String input = UserInput.getUserInput();
         List<Record> neighSearch = propAssessmentDAO.getByNeighbourhood(input);
         displayStatistics(neighSearch);
+
+    }
+
+    private static void assessmentStatistics(PropertyAssessmentDAO propAssessmentDAO){
+
+        System.out.print("\nAssessment Class Name: ");
+        String input = UserInput.getUserInput();
+        List<Record> assessmentSearch = propAssessmentDAO.getByAssessmentClass(input);
+        displayStatistics(assessmentSearch);
 
     }
 
