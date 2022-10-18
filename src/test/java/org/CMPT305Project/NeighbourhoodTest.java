@@ -1,5 +1,6 @@
 package org.CMPT305Project;
 
+import org.CMPT305ProjectM2.Neighbourhood;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

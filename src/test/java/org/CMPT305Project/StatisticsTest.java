@@ -1,5 +1,7 @@
 package org.CMPT305Project;
 
+import org.CMPT305ProjectM2.Record;
+import org.CMPT305ProjectM2.Statistics;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

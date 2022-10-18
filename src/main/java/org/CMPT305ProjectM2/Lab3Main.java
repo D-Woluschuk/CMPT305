@@ -1,4 +1,5 @@
-package org.CMPT305Project;
+package org.CMPT305ProjectM2;
+
 
 import java.io.IOException;
 import java.util.List;
@@ -19,21 +20,21 @@ public class Lab3Main {
      */
     public static void main(String[] args) throws IOException {
 
-        String filePath = UserInput.getFileName();
-        boolean fileCheck = CSV.checkFile(filePath);
+
+        /*String filePath = UserInput.getFileName();
+        CSVPropertyAssessmentDAO csvDAO = new CSVPropertyAssessmentDAO(filePath);
 
         System.out.print("Assessment Class: ");
         String input = UserInput.getUserInput();
         System.out.println("Statistics (assessment class = " + input + ")");
 
-        if (fileCheck){
-            List<Record> fileContents = CSV.readCSV(filePath);
-            List<Record> searchResults = AssessmentSearch.searchByAssessment(input, fileContents);
-            assessmentClassInfo(searchResults);
-        }
-        else {
-            System.out.println("Could not find the file!\n Please try again!");
-        }
+        List<Record> searchResults = csvDAO.getByAssessmentClass(input);
+        assessmentClassInfo(searchResults);*/
+
+        PropertyAssessmentDAO dao = new ApiPropertyAssessmentDAO();
+
+        dao.getByAccountNumber(1);
+
     }
 
     /**

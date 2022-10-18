@@ -1,4 +1,4 @@
-package org.CMPT305Project;
+package org.CMPT305ProjectM2;
 
 import java.util.List;
 import java.util.Objects;

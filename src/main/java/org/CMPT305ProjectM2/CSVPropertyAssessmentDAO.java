@@ -1,22 +1,107 @@
-package org.CMPT305Project;
+package org.CMPT305ProjectM2;
 
-import org.CMPT305ProjectM2.*;
-import org.CMPT305ProjectM2.Record;
+import org.CMPT305Project.*;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * This class provides the functionality to check if a file exists. It can also read the file,
- * and generate a list of Record objects.
- */
-public class CSV {
+public class CSVPropertyAssessmentDAO implements PropertyAssessmentDAO {
+
+    private final String fileName;
+
+
+    public CSVPropertyAssessmentDAO(String aFileName){
+        this.fileName = aFileName;
+    }
+
+    @Override
+    public Record getByAccountNumber(int anAccNumber){
+
+        List<Record> recordList;
+        recordList = getAll();
+
+        for (Record record: recordList) {
+            if (record.getAccountID() == anAccNumber){
+                return record;
+            }
+        }
+        return null;
+    }
+
+
+
+    @Override
+    public List<Record> getByNeighbourhood(String neighbourhood){
+
+        List<Record> recordList;
+
+        recordList = getAll();
+        List<Record> neighRecords = new ArrayList<>();
+
+        if (recordList == null){
+            return  neighRecords;
+        }
+
+
+        //This loop finds a neighbourhood name from each record and compares it to the user inputted name.
+        for (Record aRecord : recordList){
+
+            //If they match, we add the record with that neighbourhood name to neighRecords.
+            if ((neighbourhood.equalsIgnoreCase(aRecord.getNeighbourhood().getNeighbourhoodName()))){
+               neighRecords.add(aRecord);
+            }
+        }
+        return neighRecords;
+    }
+
+    @Override
+    public List<Record> getByAssessmentClass(String assessmentClass){
+
+
+        List<Record> recordList;
+        recordList = getAll();
+
+        List<Record> foundRecords = new ArrayList<>();
+
+        //This loop goes through each record
+        for (Record aRecord: recordList) {
+
+            //This loop goes through each assessment object in the record.
+            for (Assessment anAssessment: aRecord.getAssessment()) {
+
+                //If the assessment object has the same assessmentClass Name as the user inputted value
+                //we add it to a list of Record objects to be returned.
+                if (assessmentClass.equalsIgnoreCase(anAssessment.getAssessmentClass())){
+                    foundRecords.add(aRecord);
+
+                    //We will break since we do not need to search the other values if we
+                    //already found the assessment class name we are looking for.
+                    break;
+                }
+            }
+        }
+        return foundRecords;
+    }
+
+    @Override
+    public List<Record> getAll() {
+
+        try {
+            return readCSV();
+        } catch (IOException e) {
+            System.err.println("Could not locate the file, or it could not be opened. Exiting..");
+            System.exit(1);
+        }
+        return null;
+    }
+
+
 
     /**
      * Determines if the pathToFile string represents a file.
@@ -24,7 +109,7 @@ public class CSV {
      * @return True: If the inputFile the user wants to read is actually a file
      *         False: If the inputFile the user wants to read is not a file.
      */
-    public static boolean checkFile(String pathToFile){
+    public boolean checkFile(String pathToFile){
         File inputFile = new File(pathToFile);
         return inputFile.isFile();
     }
@@ -32,16 +117,23 @@ public class CSV {
     /**
      * Attempts to read the csv file line by line. It then breaks up each line and uses each element
      * to create a Record object and add it to a list.
-     * @param pathToFile: The file that the user wants to read from.
+     * @param : The file that the user wants to read from.
      * @return recordList: A list of Record objects, where each Record object consists of the
      * data read from a line in the file.
      * @throws IOException: If the file cannot be opened, read, or found.
      */
-    public static List<Record> readCSV(String pathToFile) throws IOException {
+    public List<Record> readCSV() throws IOException {
+
+
+        List<Record> recordList = new ArrayList<>();
+
+        boolean fileStatus = checkFile(fileName);
+        if (!fileStatus)
+            return recordList;
 
         String line;
 
-        BufferedReader input = Files.newBufferedReader(Paths.get(pathToFile));
+        BufferedReader input = Files.newBufferedReader(Paths.get(fileName));
 
         try {
             //To remove header
@@ -51,7 +143,7 @@ public class CSV {
             System.exit(1);
         }
 
-        List<Record> recordList = new ArrayList<>();
+
 
         while ((line = input.readLine()) != null) {
             String[] splitLine = line.split(",");
@@ -128,5 +220,7 @@ public class CSV {
         }
         return assessmentClass;
     }
+
+
 
 }

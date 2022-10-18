@@ -1,5 +1,8 @@
 package org.CMPT305Project;
 
+import org.CMPT305ProjectM2.Assessment;
+import org.CMPT305ProjectM2.Record;
+
 import java.util.ArrayList;
 import java.util.List;
 

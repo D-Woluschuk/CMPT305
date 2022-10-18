@@ -1,5 +1,9 @@
 package org.CMPT305Project;
 
+import org.CMPT305ProjectM2.Assessment;
+import org.CMPT305ProjectM2.House;
+import org.CMPT305ProjectM2.Neighbourhood;
+import org.CMPT305ProjectM2.Record;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package org.CMPT305Project;
+package org.CMPT305ProjectM2;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;

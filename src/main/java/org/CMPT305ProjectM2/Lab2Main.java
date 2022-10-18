@@ -1,7 +1,8 @@
-package org.CMPT305Project;
+package org.CMPT305ProjectM2;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Scanner;
 
 
 public class Lab2Main {
@@ -11,37 +12,24 @@ public class Lab2Main {
      * if the file exists. It then attempts to read the file and populate a list of Record objects
      * that is then used to display various statistical information about the data set.
      * @param args: The command line arguments passed in from the terminal.
-     * @throws IOException: If there is an issue finding, opening, or reading the file
-     *                      specified by the user.
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
         String filePath = UserInput.getFileName();
-        boolean fileCheck = CSV.checkFile(filePath);
-
-        if (fileCheck){
-            List<Record> fileContents = CSV.readCSV(filePath);
-            if (fileContents.size() == 0){
-                System.out.println("The file has no data.");
-                return;
-            }
-            allAssessmentsInfo(fileContents);
-            accountStatistics(fileContents);
-            neighStatistics(fileContents);
-        }
-
-        else {
-            System.out.println("Could not find the file!\nPlease try again!");
-        }
-
+        CSVPropertyAssessmentDAO csvDAO = new CSVPropertyAssessmentDAO(filePath);
+        allAssessmentsInfo(csvDAO);
+        accountStatistics(csvDAO);
+        neighStatistics(csvDAO);
     }
 
 
     /**
      * Displays statistical information about the entire data set read from the user specified csv file.
-     * @param fileContents: A list of Record objects that is used to calculate the statistical information.
+     * @param propAssessmentDAO:
      */
-    private static void allAssessmentsInfo(List<Record> fileContents){
+    private static void allAssessmentsInfo(PropertyAssessmentDAO propAssessmentDAO){
+
+        List<Record> fileContents = propAssessmentDAO.getAll();
 
         System.out.println("Descriptive statistics of all property assessments");
 
@@ -51,13 +39,15 @@ public class Lab2Main {
     /**
      * Displays statistical information about the user specified account number where a Record object has
      * the same account number in the user specified csv file.
-     * @param fileContents: The list of Record objects to be searched for the user specified account id.
+     * @param propAssessmentDAO:
      */
-    private static void accountStatistics(List<Record> fileContents){
-        String input;
+    private static void accountStatistics(PropertyAssessmentDAO propAssessmentDAO){
+
         System.out.print("\nFind a property assessment by account number: ");
-        input = UserInput.getUserInput();
-        Record aRecord = AccountSearch.accountSearch(input, fileContents);
+        Scanner input = new Scanner(System.in);
+        int userInput = input.nextInt();
+
+        Record aRecord = propAssessmentDAO.getByAccountNumber(userInput);
 
         if (aRecord != null){
             System.out.println(aRecord);
@@ -71,24 +61,20 @@ public class Lab2Main {
     /**
      * Displays statistical information about the user specified neighbourhood where each Record object has the
      * same neighbourhood name in the user specified csv file.
-     * @param fileContents: The list of Record objects to be searched for the user specified neighbourhood.
+     * @param propAssessmentDAO:
      */
-    private static void neighStatistics(List<Record> fileContents){
+    private static void neighStatistics(PropertyAssessmentDAO propAssessmentDAO){
+
         System.out.print("\nNeighbourhood: ");
         String input = UserInput.getUserInput();
-        List<Record> neighSearch = NeighbourhoodSearch.neighbourhoodSearch(input, fileContents);
+        List<Record> neighSearch = propAssessmentDAO.getByNeighbourhood(input);
+        displayStatistics(neighSearch);
 
-        if (neighSearch.size() != 0){
-            displayStatistics(neighSearch);
-
-        }
-        else {
-            System.out.println("Data not found.");
-        }
     }
 
 
     private static void displayStatistics(List<Record> fileContents){
+
 
         System.out.println("Count = " + fileContents.size());
 
